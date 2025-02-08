@@ -1,0 +1,70 @@
+@use "../config/" as *;
+
+.banner {
+    z-index: 9;
+    @extend .relative;
+    &-content {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        @extend .text-center;
+        @extend .absolute;
+    }
+    &-title {
+        width: max-content;
+        margin-inline: auto;
+        @extend .font-40-pb;
+        @extend .uppercase;
+        @extend .mb-1;
+        animation: fadeIn 1s ease-out;
+    }
+    &-subtitle {
+        width: 80%;
+        margin-inline: auto;
+        font-size: 6rem;
+        font-weight: 700;
+        @extend .mb-4;
+        animation: slideIn 1s ease-out 0.5s;
+        animation-fill-mode: both;
+    }
+    &-contact {
+        width: max-content;
+        margin-inline: auto;
+        animation: fadeIn 1s ease-out 1s;
+        animation-fill-mode: both;
+    }
+    .carousel-dots {
+        display: none;
+    }
+}
+// --page banner-start
+.page-banner {
+    height: var(--page-banner-height);
+    @extend .flex-c-c;
+    .banner-title {
+        color: #d61c22;
+        margin-top: var(--header-height);
+        animation: text 1.5s linear;
+        @extend .font-50-pb;
+        @extend .absolute;
+    }
+    .img-wrap {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+    }
+}
+// --page banner-end
+
+// media-query
+@media screen and (max-width: 768px) {
+    .page-banner {
+        .banner-title {
+            font-size: 4rem;
+        }
+        .banner-subtitle {
+            font-size: 5rem;
+        }
+    }
+}

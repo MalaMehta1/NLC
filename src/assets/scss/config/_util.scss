@@ -1,0 +1,551 @@
+@use "./variables" as *;
+@use "./map" as *;
+@use "./mixins" as *;
+@use "./function" as *;
+//colors start
+@each $color, $shades in $colors {
+  @each $shade, $shade-value in $shades {
+    @for $i from 1 through 9 {
+      .#{$color}-#{$shade}-#{$i} {
+        color: hsl(var(--hsl-#{$color}-#{$shade}) / #{calc($i / 10)});
+      }
+      .#{$color}-#{$shade}-bg-#{$i} {
+        background-color: hsl(var(--hsl-#{$color}-#{$shade}) / #{calc($i / 10)});
+      }
+    }
+    .#{$color}-#{$shade} {
+      color: var(--#{$color}-#{$shade});
+    }
+    .#{$color}-#{$shade}-bg {
+      background: var(--#{$color}-#{$shade});
+    }
+  }
+}
+.transparent-bg {
+  background-color: clr(pure-white, 0);
+}
+.transparent {
+  color: clr(pure-white, 0);
+}
+// colors end
+// you can set opacity value from 1 to 9
+// 1 = 0.1 opacity , 9 = .9 opacity
+// opacity 1 is by default, no need to specify it.
+// eg. color @extend %c-grey
+// check map for $colors in map file and use that key to find name
+// eg. color @extend %c-grey-1
+// eg. bg-color @extend .bg-grey-1
+// convention used t=top,l=left,b=bottom,r=right,y=block[top-bottom],x=inline[left-right],m=margin,p=padding
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+// absolute start
+.pos-y-center {
+  @include position-combo(y-center);
+}
+.pos-x-center {
+  @include position-combo(x-center);
+}
+.pos-center {
+  @include position-combo(center);
+}
+.pos-tl {
+  @include position-combo(tl);
+}
+.pos-tr {
+  @include position-combo(tr);
+}
+.pos-bl {
+  @include position-combo(bl);
+}
+.pos-br {
+  @include position-combo(br);
+}
+// absolute end
+// border-radius starts
+.full-radius {
+  border-radius: var(--full-radius);
+}
+.radius-2 {
+  border-radius: calc(var(--full-radius) * 2);
+}
+.half-radius {
+  border-radius: var(--half-radius);
+}
+.circle-radius {
+  border-radius: 50%;
+}
+.rounded-radius {
+  border-radius: 50vmax;
+}
+// border-radius ends
+// convention used t=top,l=left,b=bottom,r=right,y=block[top-bottom],x=inline[left-right],m=margin,p=padding
+// spacing starts
+@each $direction, $direction-value in $directions {
+  @for $space from 0 through $max-space-count {
+    .m#{$direction}-#{$space} {
+      margin#{$direction-value}: var(--space-#{$space});
+    }
+    .p#{$direction}-#{$space} {
+      padding#{$direction-value}: var(--space-#{$space});
+    }
+    .m#{$direction}-#{$space}-neg {
+      margin#{$direction-value}: var(--space-#{$space}-neg);
+    }
+    .p#{$direction}-#{$space}-neg {
+      padding#{$direction-value}: var(--space-#{$space}-neg);
+    }
+  }
+  .m#{$direction}-auto {
+    margin#{$direction-value}: auto;
+  }
+  .p#{$direction}-auto {
+    padding#{$direction-value}: auto;
+  }
+}
+@for $i from 0 through $max-space-count {
+  @for $j from 0 through $max-space-count {
+    .m-#{$i}-#{$j} {
+      margin: var(--space-#{$i}) var(--space-#{$j});
+    }
+    .p-#{$i}-#{$j} {
+      padding: var(--space-#{$i}) var(--space-#{$j});
+    }
+  }
+}
+//how to use
+// @extend .mt-2; margin-top
+// @extend .mx-2; margin-inline
+// @extend .my-2; margin-block
+// @extend .m-2-4; margin-block-inline
+@for $space from 0 through $max-space-count {
+  .m-#{$space} {
+    margin: var(--space-#{$space});
+  }
+  .p-#{$space} {
+    padding: var(--space-#{$space});
+  }
+  .gap-#{$space} {
+    gap: var(--space-#{$space});
+  }
+  .m-#{$space}-neg {
+    margin: var(--space-#{$space}-neg);
+  }
+  .p-#{$space}-neg {
+    padding: var(--space-#{$space}-neg);
+  }
+  .gap-#{$space}-neg {
+    gap: var(--space-#{$space}-neg);
+  }
+}
+.m-auto {
+  margin: auto;
+}
+.p-auto {
+  padding: auto;
+}
+//how to use
+// @extend .m-1
+// @extend .p-2
+// @extend .m-1-neg
+// @extend .p-2-neg
+// spacing ends
+// For width & height
+@for $i from 1 through 10 {
+  .h-#{calc($i * 10)} {
+    height: calc($i * 10%);
+  }
+  .w-#{calc($i * 10)} {
+    width: calc($i * 10%);
+  }
+}
+// text transform start
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+// text transform end
+// text alignment start
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+// text alignment end
+// display default start
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
+.d-inlineblock {
+  display: inline-block;
+}
+.d-table {
+  display: table;
+}
+// display default end
+// Flex classes start
+.flex {
+  @include flex-config(flex);
+}
+.flex-column {
+  @include flex-config(flex, column);
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.btn-absolute {
+  right: -12rem;
+  top: 50%;
+  @extend .absolute;
+}
+@each $justify, $justify-value in $flex-spacing {
+  @each $align, $align-value in $flex-spacing {
+    .flex#{$justify}#{$align} {
+      @include flex-config(flex, null, #{$justify-value}, #{$align-value});
+    }
+    .flex-column#{$justify}#{$align} {
+      @include flex-config(flex, column, #{$justify-value}, #{$align-value});
+    }
+  }
+}
+.flex-row {
+  flex-direction: row;
+}
+.align-center {
+  align-items: center;
+}
+.align-self {
+  align-self: flex-start;
+}
+// Flex classes end
+// shortform
+// 	sa: space-around,
+// 	sb: space-between,
+// 	se: space-evenly,
+// 	fe: flex-end,
+// 	fs: flex-start,
+// 	c:center,
+// 	s:stretch,
+// 	u:unset,
+// 	n:null
+//how to use
+// @extend .flex;
+// @extend .flex-column;
+// @extend .flex-null-c;
+// @extend .flex-sb-c;
+// @extend .flex-c-fs;
+// @extend .flex-column-fs-c;
+// @extend .flex-column-c-sb;
+// Overflow start
+.hidden {
+  overflow: hidden;
+}
+.visible {
+  overflow: visible;
+}
+.x-auto {
+  overflow-x: auto;
+}
+.x-scroll {
+  overflow-x: scroll;
+}
+.x-hidden {
+  overflow-x: hidden;
+}
+.y-auto {
+  overflow-y: auto;
+}
+.y-scroll {
+  overflow-y: scroll;
+}
+.y-hidden {
+  overflow-y: hidden;
+}
+// Overflow end
+// border radius start
+.full-radius {
+  border-radius: var(--full-radius);
+}
+.half-radius {
+  border-radius: var(--half-radius);
+}
+.pill-radius {
+  border-radius: 50vmax;
+}
+.circle-radius {
+  border-radius: 50%;
+}
+.rounded-radius {
+  border-radius: 50vmax;
+}
+.border-t-rr {
+  border-top-left-radius: var(--half-radius);
+  border-top-right-radius: var(--half-radius);
+}
+.border-b-rr {
+  border-bottom-left-radius: var(--half-radius);
+  border-bottom-right-radius: var(--half-radius);
+}
+.border-t-fr {
+  border-top-left-radius: var(--full-radius);
+  border-top-right-radius: var(--full-radius);
+}
+.border-b-fr {
+  border-bottom-left-radius: var(--full-radius);
+  border-bottom-right-radius: var(--full-radius);
+}
+.page-height {
+  height: var(--window-inner-height);
+}
+.page-min-height {
+  // height: calc(var(--window-inner-height) - var(--header-height));
+  height: calc(var(--window-inner-height) - calc(var(--header-height) - var(--space-4)));
+}
+// border radius end
+@each $name, $size in $font-size {
+  .fs-#{$name} {
+    font-size: $size;
+  }
+}
+.ff-primary {
+  font-family: $font-primary;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.sup {
+  font-style: italic;
+  @extend .fw-400;
+}
+// border util
+.border-0 {
+  border: 0;
+}
+.border-top-primary {
+  border-top: 0.4rem solid var(--primary);
+}
+.color-gray {
+  @extend .neutral-500;
+}
+.flex-1 {
+  flex: 1;
+}
+@each $color, $value in $colors {
+  .border-#{$color} {
+    border: 0.1rem solid var(--#{$color});
+  }
+}
+// zindex var
+@for $zindex from -1 through 5 {
+  .z#{$zindex} {
+    z-index: $zindex;
+  }
+}
+@for $position from 0 through 5 {
+  .l-#{$position} {
+    left: $position * 1rem;
+  }
+  .r-#{$position} {
+    right: $position * 1rem;
+  }
+  .t-#{$position} {
+    top: $position * 1rem;
+  }
+  .b-#{$position} {
+    bottom: $position * 1rem;
+  }
+}
+.minvh-100 {
+  min-height: var(--window-inner-height);
+}
+.box-shadow {
+  // box-shadow: 0 0.5rem 0.5rem 0 hsl(var(--hsl-pure-black) / 0.17);
+  box-shadow: 0 var(--space-1) var(--space-1) 0 hsl(var(--hsl-pure-black) / 0.17);
+}
+//width loop
+@for $i from 1 through $iterations {
+  .width-#{$i} {
+    width: $base-width * $i;
+  }
+}
+//table loop
+@each $width in $widths {
+  @for $td from 1 through 3 {
+    .td-#{$td}-#{$width} {
+      td:nth-of-type(#{$td}),
+      th:nth-of-type(#{$td}) {
+        width: #{$width * 1%};
+      }
+    }
+    // td-1-20  td:nth-of-type(1)-20%,th:nth-of-type(1)-20%
+  }
+}
+//Desktop Media Queries Start
+@media screen and (min-width: $xl-desktop-min-width) {
+  @each $direction, $direction-value in $directions {
+    @for $space from 0 through $max-space-count {
+      .m-#{$direction}-xl-#{$space} {
+        margin#{$direction-value}: var(--space-#{$space});
+      }
+      .p-#{$direction}-xl-#{$space} {
+        padding#{$direction-value}: var(--space-#{$space});
+      }
+      .m-#{$direction}-xl-#{$space}-neg {
+        margin#{$direction-value}: var(--space-#{$space}-neg);
+      }
+      .p-#{$direction}-xl-#{$space}-neg {
+        padding#{$direction-value}: var(--space-#{$space}-neg);
+      }
+    }
+    .m-#{$direction}-xl-auto {
+      margin#{$direction-value}: auto;
+    }
+    .p-#{$direction}-xl-auto {
+      padding#{$direction-value}: auto;
+    }
+  }
+  @for $space from 0 through $max-space-count {
+    .m-xl-#{$space} {
+      margin: var(--space-#{$space});
+    }
+    .p-xl-#{$space} {
+      padding: var(--space-#{$space});
+    }
+    .gap-xl-#{$space} {
+      gap: var(--space-#{$space});
+    }
+    .m-xl-#{$space}-neg {
+      margin: var(--space-#{$space}-neg);
+    }
+    .p-xl-#{$space}-neg {
+      padding: var(--space-#{$space}-neg);
+    }
+    .gap-xl-#{$space}-neg {
+      gap: var(--space-#{$space}-neg);
+    }
+  }
+  .mt-xl-auto {
+    margin-top: auto;
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.h-100 {
+  height: 100%;
+}
+.w-100 {
+  width: 100%;
+}
+.h-screen {
+  height: 100vh;
+}
+//width loop
+@for $i from 1 through $iterations {
+  .width-#{$i} {
+    width: $base-width * $i;
+  }
+}
+//Desktop Media Queries End
+.right-seperator::after {
+  content: "|";
+  margin-inline: var(--space-2);
+}
+.text-gold {
+  background: linear-gradient(90deg,
+      var(--primary-600) 0%,
+      var(--primary-800) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.overlay {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(black -30%, transparent);
+    border-radius: var(--half-radius);
+  }
+}
+.hide-scrollbar {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+.btn-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--neutral-100);
+  border-radius: 50%;
+}
+.no-data {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  text-transform: capitalize;
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.btn-edit {
+  position: relative;
+  isolation: isolate;
+  transition: 500ms color;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transition: 500ms opacity;
+    background: linear-gradient(90deg,
+        var(--primary-600) 0%,
+        var(--primary-800) 100%);
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &:hover {
+    color: var(--neutral-50);
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+.w-max {
+  width: max-content
+}

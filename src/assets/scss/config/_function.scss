@@ -1,0 +1,7 @@
+@function clr($clr, $opacity: 10) {
+  @if $opacity != 10 {
+    @return hsl(var(--hsl-#{$clr}), ($opacity * 0.1));
+  } @else {
+    @return var(--#{$clr});
+  }
+}

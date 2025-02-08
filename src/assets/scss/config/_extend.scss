@@ -1,0 +1,33 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "map" as *;
+@use "animation" as *;
+// font sizes start
+@for $size from 8 through 60 {
+  $font-size : #{calc($size * .1rem)};
+  @each $font-name,
+  $font-data in $font-detail {
+    @each $font-alias,
+    $font-details in $font-data {
+      @each $font-family,
+      $font-weight in $font-details {
+        .font-#{$size}-#{$font-alias} {
+          font: $font-weight $font-size $font-name;
+        }
+      }
+    }
+  }
+  .font-#{$size} {
+    font-size: $font-size;
+  }
+}
+.font-0 {
+  font-size: 0;
+}
+// font sizes end
+//social link 
+@each $name, $color in $social-colors {
+  .#{$name}-link {
+    color: $color;
+  }
+}

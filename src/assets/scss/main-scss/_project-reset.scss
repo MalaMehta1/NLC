@@ -1,0 +1,162 @@
+@use "../config" as *;
+
+// margin and padding 0 for all elements and border box
+* {
+    font-family: $font-primary;
+    @extend .m-0;
+    @extend .p-0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// base font size and scroll behaviour for smooth scroll animation
+html {
+    font-size: var(--base-font-size);
+    scroll-behavior: smooth;
+}
+
+// body
+// 1. As a best practice, apply a default `background-color`.
+// 2. As a best practice, apply a default `color` so that if text color changes just change body text color.
+body {
+    font-family: $font-primary, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    font-weight: normal;
+    letter-spacing: .05rem;
+    line-height: $default-line-height;
+    font-size: $body-font-size;
+    // background-color: var(--neutral-800); // 1
+    color: #000; // 2
+}
+
+hr {
+    border: 0;
+    border-top: 0.1rem solid;
+    opacity: 0.4;
+    @extend .d-block;
+    // @extend .pure-black-3;
+}
+
+small,
+label {
+    font-size: 1.2rem;
+}
+
+big {
+    font-size: 1.6rem;
+}
+
+sub,
+sup {
+    font-size: 1rem;
+}
+
+h1 {
+    @extend .font-30-pb;
+    @extend .mb-2;
+}
+
+h2 {
+    @extend .font-26-pb;
+    @extend .mb-2;
+    @extend .pure-black-500;
+}
+
+h3 {
+    @extend .font-24-pb;
+    @extend .mb-2;
+    @extend .pure-black-500;
+}
+
+h4 {
+    @extend .font-20-pb;
+    @extend .mb-2;
+}
+
+h5 {
+    @extend .font-18-pb;
+    @extend .mb-2;
+}
+
+h6 {
+    @extend .font-16-pb;
+    @extend .mb-2;
+}
+
+p {
+    @extend .mb-2;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+ul,
+ol {
+    @extend .pl-2;
+}
+
+a:not([href]):not([class]) {
+
+    &,
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+blockquote {
+    margin: 0 0 1rem;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    @extend .transparent-bg;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+textarea {
+    resize: vertical; // 1
+}
+
+input {
+    border: 0;
+
+    &:focus-within {
+        outline: none;
+    }
+}
+
+select {
+    border: 0;
+}
+
+iframe {
+    border: 0;
+}
+
+[hidden] {
+    display: none;
+}
+ul{
+    list-style: none;
+    a{
+        text-decoration: none;
+    }
+}

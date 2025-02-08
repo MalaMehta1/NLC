@@ -1,0 +1,23 @@
+@use '../config/' as *;
+
+.btn{
+    width: max-content;
+    @extend .capitalize;
+    @extend .font-16-pm;
+    @extend .p-2-3;
+    @extend .half-radius;
+    &-primary{
+        background:#fff;
+        box-shadow: rgba(181,159,120, 0.2) 0px 2px 8px 0px;
+        color: #ec1d25;
+        transition: all 200ms linear;
+        &:hover{
+            background:#ec1d25;
+            color:#fff;
+        }
+    }
+    &-underline{
+        border-bottom: .2rem solid #000;
+        padding-bottom: .2rem;;
+    }
+}

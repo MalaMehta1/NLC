@@ -1,0 +1,101 @@
+@use "./map" as *;
+// scss variables
+$base-space: 0.5rem;
+$max-space-count: 40; // maximum count variable generation
+$default-line-height: 1.6;
+$body-font-size: 1.6rem; // this is style for default paragraohs span and other
+// font variables
+$font-primary: "Inter";
+$font-icon: "waf-font-icon";
+//  version variables
+$image-version: "1.0";
+$font-version: "28751386";
+$tablet-min-width: 768px;
+$desktop-min-width: 992px;
+$large-desktop-min-width: 1200px;
+$xl-desktop-min-width: 1600px;
+
+$base-width: 1rem;
+$iterations: 100;
+$number-of-elements: 12;
+$base-rotation: 30deg;
+$animation-delay-step: 0.1s;
+
+// css variables
+:root {
+  @each $color, $shades in $colors {
+    @each $shade, $hsl in $shades {
+      --#{$color}-#{$shade}: hsl(#{$hsl});
+      --hsl-#{$color}-#{$shade}: #{$hsl};
+    }
+  }
+
+  --pure-white: hsl(0, 0%, 100%);
+  --hsl-pure-white: 0, 0%, 100%;
+  --pure-black: hsl(0, 0%, 0%);
+  --hsl-pure-black: 0, 0%, 0%;
+  // non color variables
+  --base-font-size: 62.5%;
+  --container-max-width: 100%;
+  --content-width: var(--window-inner-width);
+  --sidemenu-width: 9rem;
+  --footer-height: 4.5rem;
+  --filter-head-height: 4rem;
+  --filter-footer-height: 8rem;
+  --header-height:8.5rem;
+  --category-section:9.6rem;
+  --category-left:14rem;
+  --page-banner-height:55vh;
+  --vh: 1vh;
+  --vw: 1vw;
+  --window-inner-height: calc(var(--vh, 1vh) * 100);
+  --window-inner-width: calc(var(--vw, 1vw) * 100);
+  --container-white-space: calc(
+    (var(--window-inner-width) - var(--container-max-width)) / 2
+  );
+
+  // space variable
+  @for $i from 1 through $max-space-count {
+    --space-#{$i}: #{$base-space * $i};
+    --space-#{$i}-neg: #{$base-space * $i * -1};
+  }
+
+  --space-0: 0;
+  // use
+  // --space-1 = 5px
+  // --space-2 = 10px.... till --space-12 = 60px
+  // this is according to base space variable
+  --full-radius: 1rem;
+  --half-radius: calc(var(--full-radius) / 2);
+  --pill-radius: 50vmax;
+  --circle-radius: 100%;
+  // **********this is just example for naming convention so please remove it and use it***********
+  // height varible
+  --swiper-button-width: 3rem;
+  --top-nav: 9rem;
+  // zindex variable ********** assending order *******************
+  --z-dropdown: 1;
+  // --zindex-pattern: -1;
+  --loader: 9;
+}
+
+@media (min-width: $tablet-min-width) {
+  :root {
+      --container-max-width: 72rem;
+  }
+}
+@media (min-width: $desktop-min-width) {
+  :root {
+      --container-max-width: 96rem;
+  }
+}
+@media (min-width: $large-desktop-min-width) {
+  :root {
+      --container-max-width: 114rem;
+  }
+}
+@media (min-width: $xl-desktop-min-width) {
+  :root {
+      --container-max-width: 140rem;
+  }
+}

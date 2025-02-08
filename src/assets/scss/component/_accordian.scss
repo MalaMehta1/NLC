@@ -1,0 +1,25 @@
+
+
+@use '../config/' as *;
+
+.accordian-read-more{
+    .title{
+        color: #d61c22;
+        @extend .font-20-pb;
+        @extend .uppercase;
+    }
+   .block-item-text{
+    background-color: #ececeb;
+    @extend .p-5;
+    @extend .m-5;
+    @extend .half-radius;
+   }
+   .text{
+    @extend .font-14-pr;
+   }
+   .content-list{
+    list-style: circle;
+   }
+}
+
+

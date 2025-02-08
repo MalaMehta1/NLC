@@ -1,0 +1,103 @@
+@use '../config/' as *;
+
+.footer{
+    &-section{
+        background: #222222;
+        @extend .py-10;
+       
+    }
+    &-logo{
+        @extend .flex-c-c;
+        .logo-text{
+            @extend .text-center;
+            @extend .neutral-50;
+            @extend .font-22-pm;
+            @extend .uppercase;
+        }
+        .logo-img-wrap{
+            width: 20rem;
+       
+           }
+    }
+    &-content{
+        @extend .flex-sb-fs;
+        @extend .pt-3;
+        .social-link-wrap{
+            // margin-block: auto;;
+            align-items: center;
+            color: #999999;
+            @extend .flex-column;
+        }
+        .social-link-list{
+            @extend .flex;
+            @extend .gap-2;
+            @extend .mt-5;
+        }
+        .social-link{
+            height: 4rem;
+            width: 4rem;
+            @extend .neutral-50-bg;
+            @extend .font-32;
+            @extend .flex-c-c;
+            @extend .half-radius;
+            svg:hover{
+                opacity: 0.8;
+            }
+            
+        }
+        .title{
+            @extend .neutral-50;
+            @extend .uppercase;
+            @extend .font-18-pm;
+            @extend .mb-5;
+        }
+        .open-info{
+            @extend .text-center;
+        }
+    }
+    &-contact{
+        a{
+            color: #999999;
+            @extend .font-16-pr;
+            @extend .flex;
+            @extend .gap-2;
+            @extend .mb-2;
+            &:hover{
+                color: #d61c22;
+            }
+        }
+    }
+    &-link{
+        a{
+            color: #999999;
+            @extend .font-16-pr;
+            @extend .flex;
+            @extend .gap-2;
+            @extend .mb-2;
+            &:hover{
+                color: #d61c22;
+            }
+        }
+    }
+    &-menu-link{
+        @extend .flex-fs-c;
+        svg{
+            rotate: -43deg;
+        }
+    }
+    
+    
+}
+
+// media -query
+
+@media screen and (max-width:768px){
+    .footer-content{
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+    .footer-contact{
+        text-align: center;
+    }
+}

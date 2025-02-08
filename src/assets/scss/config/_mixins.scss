@@ -1,0 +1,245 @@
+@use "variables" as *;
+@use "map" as *;
+
+@mixin position-combo($combo: null, $x: null, $y: null, $position: absolute) {
+  position: $position;
+
+  @if $combo == "tl" {
+    top: 0;
+    left: 0;
+  } @else if $combo == "tr" {
+    top: 0;
+    right: 0;
+  } @else if $combo == "bl" {
+    bottom: 0;
+    left: 0;
+  } @else if $combo == "br" {
+    bottom: 0;
+    right: 0;
+  } @else if $combo == "inset" {
+    inset: 0;
+  } @else if $combo== "center" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $combo== "y-center" {
+    top: 50%;
+    right: $x;
+    left: $y;
+    transform: translate(0, -50%);
+  } @else if $combo== "x-center" {
+    left: 50%;
+    top: $x;
+    bottom: $y;
+    transform: translate(-50%, 0);
+  }
+}
+
+// @include position-combo(tl);
+// @include position-combo(center);
+@mixin position(
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $position: absolute
+) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: $position;
+}
+
+// how to use
+// @include flex-config(flex);
+// @include flex-config(flex, row, center, center);
+@mixin flex-config(
+  $display: flex,
+  $flex-direction: null,
+  $justify-content: null,
+  $align-items: null
+) {
+  display: $display;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// how to use
+// @include position(1rem,2rem,3rem,4rem); // top right bottom left
+// @include position(1rem,2rem,3rem,4rem,fixed); // top right bottom left fixed
+@mixin card-count-grid($count, $gap: 0rem) {
+  display: grid;
+  gap: $gap;
+
+  @if $count % 1==0 {
+    grid-auto-columns: calc(100% / $count - (($count - 1) * $gap / $count));
+  } @else {
+    grid-auto-columns: calc(100% / $count - ($count / ceil($count) * $gap));
+  }
+
+  grid-auto-flow: column;
+}
+
+@mixin card-count($count, $gap: 0rem) {
+  gap: $gap;
+  flex-wrap: wrap;
+  @include flex-config(flex);
+
+  & > * {
+    flex-basis: calc(100% / $count - (($count - 1) * $gap / $count));
+    flex-shrink: 0;
+  }
+}
+
+// how to use
+// @include card-count(1);
+// @include card-count(2,var(--space-4));
+// @include card-count(2.5,var(--space-4));
+@mixin bg($color, $opacity: 10) {
+  $color-hsla: hsl(var(--hsl-#{$color}) / calc($opacity * 0.1));
+  background-color: $color-hsla;
+}
+
+@mixin color($color, $opacity: 10) {
+  $color-hsla: hsl(var(--hsl-#{$color}) / calc($opacity * 0.1));
+  color: $color-hsla;
+}
+
+// how to use
+// @include bg(white,7) // color with opacity
+// @include bg(black) // solid color
+@mixin dropdown($status, $animation-delay: 300ms) {
+  @if $status ==close {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    pointer-events: none;
+    @include transition(clip-path $animation-delay linear);
+  } @else if $status ==open {
+    pointer-events: all;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@mixin dropup($status, $animation-delay: 300ms) {
+  @if $status ==close {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    @include transition(clip-path $animation-delay linear);
+  } @else if $status ==open {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@mixin custom-scroll {
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.4rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: hsl(var(--hsl-white) / 0.1);
+    border-radius: var(--half-radius);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--half-radius);
+    background: var(--dark-grey);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    border-radius: var(--half-radius);
+    background: var(--black);
+  }
+}
+
+@mixin truncate(
+  $line-number,
+  $font-size,
+  $line-height: null,
+  $font-family: null
+) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: $line-number;
+  font-family: $font-family;
+  font-size: $font-size * 0.1rem;
+
+  @if $line-height !=null {
+    line-height: $line-height * 0.1rem;
+  } @else if $line-height ==null {
+    $line-height: $font-size * 1.6;
+  }
+
+  height: calc($line-number * $line-height * 0.1rem);
+}
+
+// how to use
+// @include truncate(line number, font-size,line-height, font-family)
+// @include truncate(3, 20)
+// @include truncate(3, 20,34,$font-pr)
+@mixin grid($count, $gap: var(--space-2)) {
+  display: grid;
+  grid-template-columns: repeat($count, 1fr);
+  gap: $gap;
+}
+
+// how to use
+// @include grid(count of columns , space);
+// @include grid(3,var(--space-2);
+// @include grid(3,3rem);
+// map
+// change map as per project
+@mixin icon($name, $size: 14, $line-height: null) {
+  $icon: map-get($icon-map, $name);
+  font-family: $font-icon;
+
+  @if $icon !=null {
+    content: $icon;
+    font-size: $size * 0.1rem;
+
+    @if $line-height !=null {
+      line-height: $line-height * 0.1rem;
+    }
+  } @else {
+    @error "Icon '#{$name}' not found in $icons map.";
+  }
+}
+
+@mixin dotted-pattern(
+  $width: 8rem,
+  $height: 12rem,
+  $size: 1rem,
+  $element: after,
+  $color: orange,
+  $parent: relative
+) {
+  position: $parent;
+
+  &::#{$element} {
+    position: absolute;
+    content: "";
+    width: $width;
+    height: $height;
+    pointer-events: none;
+
+    @if ($color==green) {
+      background: url("/images/pattern/dots-green.svg") top left;
+    } @else {
+      background: url("/images/pattern/dots.svg") top left;
+    }
+
+    background-size: $size;
+  }
+}
+@mixin background($bg-color: null, $bg-Img: null, $bg-Props...) {
+  @if $bg-Img ==null {
+    background: $bg-Props;
+  } @else if $bg-color ==null {
+    background: url("/images/#{$bg-Img}?v=#{$image-version}") $bg-Props;
+  } @else {
+    background: $bg-color
+      url("/images/#{$bg-Img}?v=#{$image-version}")
+      $bg-Props;
+  }
+}

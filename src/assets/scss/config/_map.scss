@@ -1,0 +1,259 @@
+$colors: (
+  "primary": (
+    //
+    "50": (48, 48%, 94%),
+    //#F7F4E8
+    "100": (47, 74%, 85%),
+    //#F5E8BB
+    "200": (47, 80%, 75%),
+    //#F2DC8B
+    "300": (48, 86%, 65%),
+    //#F2D358
+    "400": (47, 87%, 58%),
+    //#F1C836
+    "500": (46, 89%, 54%),
+    //#F2C022
+    "600": (43, 89%, 53%),
+    //#F2B41C
+    "700": (38, 88%, 51%),
+    //#F0A016
+    "800": (34, 89%, 51%),
+    //#F19213
+    "900": (28, 96%, 48%),
+    //#F07205
+  ),
+  "neutral": (
+    "50": (
+      240,
+      17%,
+      98%,
+    ),
+    //#F8F8FA
+    "100":
+      (
+        0,
+        0%,
+        97%,
+      ),
+    //#F7F7F7
+    "200":
+      (
+        0,
+        0%,
+        89%,
+      ),
+    //#E2E2E2
+    "400":
+      (
+        60,
+        1%,
+        67%,
+      ),
+    //#ABABAA
+    "500":
+      (
+        0,
+        0%,
+        54%,
+      ),
+    //#8A8A8A
+    "600":
+      (
+        0,
+        0%,
+        39%,
+      ),
+    "700": (
+      0,
+      0%,
+      19%,
+    ),
+    //#303030
+    "800":
+      (
+        0,
+        0%,
+        12%,
+      ),
+    //#1E1E1E
+    "900":
+      (
+        0,
+        0%,
+        0%,
+      ),
+    //#000000
+  ),
+  "tertiory": (
+    //
+    "300": (33 78% 46%),
+    // #D27F1A
+    "600": (33 100% 17%),
+    // #562F00
+    "800": (0 0% 12%),
+    // #1E1E1E
+  ),
+  "gradient": (
+    //
+    "100": (0 0% 11%),
+    "200": (0 0% 11%),
+    "400": (300 3% 8%),
+    "600": (300 3% 8%),
+    "800": (300 3% 8%),
+  ),
+  "success": (
+    500: (
+      152 82% 39%,
+    ),
+  ),
+  // #12B76A
+  "info":
+    (
+      500: (
+        34 94% 50%,
+      ),
+    ),
+  // #F79009
+  "warning":
+    (
+      500: (
+        4 74% 49%,
+      ),
+    ),
+  // #D92D20
+  "pure-white":
+    (
+      500: (
+        0 0% 100%,
+      ),
+    ),
+  // #fff
+  "pure-black":
+    (
+      500: (
+        0 0% 0%,
+      ),
+    ),
+  // #000
+);
+// add colours here in hsl format according to project
+$font-size: (
+  xs: 1rem,
+  s: 1.8rem,
+  m: 2rem,
+  l: 3rem,
+  xl: 5rem,
+  xxl: 7rem,
+  4xl: 12rem,
+);
+$width-list: (
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  33,
+  35,
+  40,
+  45,
+  50,
+  55,
+  60,
+  65,
+  70,
+  75,
+  80,
+  85,
+  90,
+  95,
+  100
+);
+
+$font-detail: (
+  Inter: (
+    pr: (
+      Inter-Regular: 400,
+    ),
+    pm: (
+      Inter-Medium: 500,
+    ),
+    pb: (
+      Inter-Bold: 700,
+    ),
+  ),
+);
+$directions: (
+  t: -top,
+  r: -right,
+  b: -bottom,
+  l: -left,
+  x: -inline,
+  y: -block,
+);
+$flex-spacing: (
+  -sa: space-around,
+  -sb: space-between,
+  -se: space-evenly,
+  -fe: flex-end,
+  -fs: flex-start,
+  -c: center,
+  -s: stretch,
+  -u: unset,
+  -n: null
+);
+// $media-query: (
+// 	col: 300px,
+// 	col-md: 768px,
+// 	col-lg: 1200px,
+// 	col-xl: 1600px,
+// );
+$icon-map: (
+  arrow-left: "\e800",
+  arrow-right: "\e801",
+  arrow-up: "\e802",
+  arrow-down: "\e803",
+  chevron-left: "\e804",
+  chevron-right: "\e805",
+  chevron-up: "\e806",
+  chevron-down: "\e807",
+  more: "\e809",
+  close: "\e813",
+  android: "\e816",
+  info: "\e817",
+  user-circle: "\e818",
+  checkmark: "\e819",
+  search: "\e81a",
+  bookmark: "\e81e",
+  user: "\e825",
+  backward: "\e826",
+  minus: "\e827",
+  edit: "\e82b",
+  forward: "\e83b",
+  reset: "\e83c",
+  logout: "\e878",
+  checkmark-circle: "\f06d",
+  menu: "\f0c9",
+  play-circled: "\f144",
+  youtube: "\f16a",
+);
+// $social: (
+// 	"facebook": "\e808",
+// 	"youtube": "\f16a",
+// 	"tiktok": "\e80d",
+// 	"whatsapp": "\e80e",
+// 	"twitter": "\e80f",
+// 	"instagram": "\e810",
+// 	"linkedin": "\e811",
+// 	"copylink": "\e80a",
+// 	)
+$social-colors: (
+  facebook: #1877F2, // Facebook blue
+  instagram: #E4405F, // Instagram pink
+  linkedin: #0A66C2, // LinkedIn blue
+  whatsapp: #25D366, // WhatsApp green
+  twitter: #1DA1F2 // Twitter blue
+);
+
+$widths: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100);
+$td: (1, 2, 3);

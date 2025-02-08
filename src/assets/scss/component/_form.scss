@@ -1,0 +1,27 @@
+@use '../config/' as *;
+
+.label{
+    color: #555555;
+    @extend .font-15-pm;
+    @extend .capitalize;
+    @extend .mb-2;
+
+}
+.input-field{
+    border: 2px solid #d9d9d9;
+    @extend .half-radius;
+    @extend .p-2-3;
+}
+.error{
+    color: red;
+    @extend .font-12-pr;
+
+}
+.contact-form{
+    flex-wrap: wrap;
+    @extend .flex;
+    @extend .gap-2;
+    .field-wrap{
+        @extend .flex-column;
+    }
+}
