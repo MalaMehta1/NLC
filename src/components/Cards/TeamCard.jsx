@@ -47,17 +47,17 @@ const TeamCard = () => {
                 </div>
                 <ul className="social flex-c-c gap-3">
                     <li className='social-link-item'>
-                        <a href='https://www.facebook.com/profile.php?id=100089449543905' className="social-link ">
+                        <a href='https://www.facebook.com/people/Ranjana-Raut/pfbid0o93qGujo4Z8mCCqhvXUXfpgyeVX8nWWtym6ngoyqrCBCvSDwe5LdneATZp2b26BLl/?rdid=EvFyCmMqrTHJbbFl&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1B8KGzirGn%2F' className="social-link ">
                             <FaFacebookSquare className='facebook-link' />
                         </a>
                     </li>
                     <li className='social-link-item'>
-                        <a href='https://www.instagram.com/nationallegalcounsel/' className="social-link ">
+                        <a href='https://www.instagram.com/accounts/login/?next=%2Franzhanaraut%2F&source=omni_redirect' className="social-link ">
                             <FaSquareInstagram className='instagram-link' />
                         </a>
                     </li>
                     <li className='social-link-item '>
-                        <a href='https://www.linkedin.com/in/national-legal-counsel-pvt-ltd-433212346/' className="social-link ">
+                        <a href='https://www.linkedin.com/in/ranjana-raut-16467b26a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' className="social-link ">
                             <FaLinkedin className='linkedin-link' />
                         </a>
                     </li>

@@ -7,23 +7,23 @@ const PracticeArea = () => {
     const practiceAreas = [
         {
             titleTxt: "corporate law",
-            imgSrc: "https://www.floresmendez.com/wp-content/uploads/2024/09/GMB-Updates-2024-09-25T130324.834.jpg"
+            imgSrc: "images/practice-area/corporate-law.jpeg"
         },
         {
             titleTxt: "family law",
-            imgSrc: "https://www.floresmendez.com/wp-content/uploads/2024/09/GMB-Updates-2024-09-25T130324.834.jpg"
+            imgSrc: "images/practice-area/family-law.jpeg"
         },
         {
             titleTxt: "taxation law",
-            imgSrc: "https://www.floresmendez.com/wp-content/uploads/2024/09/GMB-Updates-2024-09-25T130324.834.jpg"
+            imgSrc: "images/practice-area/tax-law.jpeg"
         },
         {
-            titleTxt: "contract law",
+            titleTxt: "criminal law",
             imgSrc: "https://www.floresmendez.com/wp-content/uploads/2024/09/GMB-Updates-2024-09-25T130324.834.jpg"
         },
         {
             titleTxt: "cyber law",
-            imgSrc: "https://www.floresmendez.com/wp-content/uploads/2024/09/GMB-Updates-2024-09-25T130324.834.jpg"
+            imgSrc: "images/practice-area/cyber-law.jpeg"
         }
     ];
 

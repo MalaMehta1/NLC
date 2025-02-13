@@ -13,6 +13,14 @@ const PracticeArea = () => {
   // Object to store practice area details
   const practiceAreas = [
     {
+      "title": "civil law",
+      "description": "Civil law deals with disputes between individuals, organizations, or between the two, where compensation may be awarded to the victim. It encompasses areas such as contracts, property, family, and tort law. Civil law focuses on resolving non-criminal conflicts, ensuring rights and obligations are upheld, and providing remedies for those affected."
+    },
+    {
+      "title": "criminal law",
+      "description": "Criminal law involves rules and statutes that define conduct prohibited by the state because it threatens public safety and welfare. It includes prosecuting individuals or entities accused of crimes such as theft, assault, fraud, or murder. Criminal law seeks to punish offenders, deter criminal behavior, and provide justice to victims."
+    },
+    {
       "title": "business and corporate law",
       "description": "Business and corporate law encompasses the legal aspects of forming, operating, and dissolving businesses. This includes corporate governance, mergers and acquisitions, compliance with regulations, and resolving disputes related to business activities."
     },

@@ -24,8 +24,9 @@ const Footer = () => {
                 <div className='social-link-wrap'>
                     <div className='open-info'>
                         <h3 className='title'>office hours</h3>
-                        <p className='time'>10:00am - 05:30pm</p>
                         <p className='day'>sunday to friday</p>
+                        <p className='time'>9:30am - 05:30pm</p>
+                        <p className='day'>saturday closed</p>
                     </div>
                     <ul className='social-link-list'>
                         <li className='social-link-item'>
@@ -64,12 +65,24 @@ const Footer = () => {
                         <a href="mailto:malamehta370@gamil.com"> <IoMailSharp /> <span>info.nationallegalcounsel</span></a>
                     </div>
                     <div className='contact-info'>
+                        <div className='mb-2 neutral-50'>Head Office</div>
                         <a href="https://www.google.com/maps/place/Maitighar,+Kathmandu+44600,+Nepal/@27.6924726,85.3225654,677m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39eb19b1ce7d8c61:0x58bb28c5ee006d86!8m2!3d27.6919767!4d85.3229913!16s%2Fg%2F11b6b4bbpy?entry=ttu&g_ep=EgoyMDI1MDEwOC4wIKXMDSoASAFQAw%3D%3D">
                             <FaLocationDot />
                             <address>
                                 Maitighar Mandala, East to St.xevier college
                                 <br />
                                 Kathmandu(Nepal)
+                            </address>
+                        </a>
+                    </div>
+                    <div className='contact-info'>
+                    <div className='mb-2 neutral-50'>Branch Office - Bara branch</div>
+                        <a href="https://maps.app.goo.gl/1UWmEFgZjhYBcpaW8">
+                            <FaLocationDot />
+                            <address>
+                            Jeetpursimara Sub-Metropolitan city-12, Fattepur
+                                <br />
+                                Bara(Nepal)
                             </address>
                         </a>
                     </div>

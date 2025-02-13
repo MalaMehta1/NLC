@@ -4,7 +4,7 @@ const ScrollText = () => {
     return (
         <div class="scroll-text-container">
             <div class="scroll-text">
-                This website is designed and developed by Mala Mehta. WhatsApp me at +918871354231 for more website projects.
+            This website is created for the purpose of disseminating information and shall not be construed as an instrument for advertisement, marketing and or solicitation against the code of conduct of Nepal Bar Council.
             </div>
         </div>
     )

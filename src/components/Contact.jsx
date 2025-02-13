@@ -106,7 +106,7 @@ const Contact = () => {
                 />
                 <ErrorMessage name="message" component="div" className="error" />
               </div>
-
+               <div className='w-100 font-12'>Disclaimer: The information collected by this form shall be used for client communication and identification purposes only.</div>
               <div className='w-100'>
                 <button type="submit" className='btn btn-primary' style={{paddingInline:"4rem"}}>Submit</button>
               </div>
