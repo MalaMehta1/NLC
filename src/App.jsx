@@ -9,7 +9,6 @@ import OurTeam from './pages/OurTeam';
 import PublicationsPage from './pages/Publications';
 import PracticeArea from './pages/PracticeArea';
 import OurServices from './pages/OurServices';
-import ScrollEffects from './components/common/ScrollEffects';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
 import Seo from './components/common/Seo';
 
@@ -18,7 +17,6 @@ const App = () => {
     <div>
       <Router>
         <Seo />
-        <ScrollEffects />
         <WhatsAppFloat />
         <Routes>
           <Route path='/' element={<Home />} />
