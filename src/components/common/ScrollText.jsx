@@ -1,10 +1,11 @@
 import React from 'react'
+import { siteData } from '../../data'
 
 const ScrollText = () => {
     return (
-        <div class="scroll-text-container">
-            <div class="scroll-text">
-            This website is created for the purpose of disseminating information and shall not be construed as an instrument for advertisement, marketing and or solicitation against the code of conduct of Nepal Bar Council.
+        <div className="scroll-text-container">
+            <div className="scroll-text">
+            {siteData.disclaimer}
             </div>
         </div>
     )

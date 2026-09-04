@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "image": "https://img.freepik.com/free-vector/realistic-film-awards-illustration_23-2149330581.jpg?semt=ais_hybrid",
+      "alt": "Award recognition 1"
+    },
+    {
+      "image": "https://competition.adesignaward.com/images/golden-laurel-wreath.jpg",
+      "alt": "Award recognition 2"
+    },
+    {
+      "image": "https://img.freepik.com/free-vector/realistic-film-awards-illustration_23-2149330581.jpg?semt=ais_hybrid",
+      "alt": "Award recognition 3"
+    },
+    {
+      "image": "https://competition.adesignaward.com/images/golden-laurel-wreath.jpg",
+      "alt": "Award recognition 4"
+    },
+    {
+      "image": "https://img.freepik.com/free-vector/realistic-film-awards-illustration_23-2149330581.jpg?semt=ais_hybrid",
+      "alt": "Award recognition 5"
+    },
+    {
+      "image": "https://competition.adesignaward.com/images/golden-laurel-wreath.jpg",
+      "alt": "Award recognition 6"
+    }
+  ]
+}

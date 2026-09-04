@@ -1,0 +1,44 @@
+{
+  "members": [
+    {
+      "name": "Ramprawesh Yadav",
+      "role": "Founding Partner",
+      "phone": "9820772703",
+      "image": "../images/team/image-1.jpeg",
+      "social": [
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/profile.php?id=100089449543905"
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/nationallegalcounsel/"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/in/national-legal-counsel-pvt-ltd-433212346/"
+        }
+      ]
+    },
+    {
+      "name": "Ranjana Raut",
+      "role": "Associate",
+      "phone": "9802355291",
+      "image": "../images/team/image-2.jpeg",
+      "social": [
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/people/Ranjana-Raut/pfbid0o93qGujo4Z8mCCqhvXUXfpgyeVX8nWWtym6ngoyqrCBCvSDwe5LdneATZp2b26BLl/?rdid=EvFyCmMqrTHJbbFl&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1B8KGzirGn%2F"
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/accounts/login/?next=%2Franzhanaraut%2F&source=omni_redirect"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/in/ranjana-raut-16467b26a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+        }
+      ]
+    }
+  ]
+}

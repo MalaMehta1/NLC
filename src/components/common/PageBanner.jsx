@@ -1,4 +1,5 @@
 import React from 'react'
+import { siteData } from '../../data'
 
 const PageBanner = ({title}) => {
   
@@ -6,7 +7,7 @@ const PageBanner = ({title}) => {
   return (
     <section className='page-banner'>
         <div className='img-wrap'>
-        <img src="../images/banner-1.jpeg" alt="" />
+        <img src={siteData.pageBannerImage} alt="" />
         </div>
        <h2 className='banner-title'>
         {title}

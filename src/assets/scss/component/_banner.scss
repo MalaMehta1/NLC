@@ -3,11 +3,22 @@
 .banner {
     z-index: 9;
     @extend .relative;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 55%, rgba(0, 0, 0, 0.72) 100%),
+            radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+    }
     &-content {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: #fff;
+        z-index: 3;
         @extend .text-center;
         @extend .absolute;
     }
@@ -17,21 +28,25 @@
         @extend .font-40-pb;
         @extend .uppercase;
         @extend .mb-1;
-        animation: fadeIn 1s ease-out;
+        letter-spacing: 0.18em;
+        opacity: 0.92;
+        animation: fadeIn 1s var(--ease-out);
     }
     &-subtitle {
-        width: 80%;
+        width: min(90%, 90rem);
         margin-inline: auto;
-        font-size: 6rem;
+        font-size: clamp(3.2rem, 6vw, 6rem);
         font-weight: 700;
+        line-height: 1.1;
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
         @extend .mb-4;
-        animation: slideIn 1s ease-out 0.5s;
+        animation: slideIn 1s var(--ease-out) 0.35s;
         animation-fill-mode: both;
     }
     &-contact {
         width: max-content;
         margin-inline: auto;
-        animation: fadeIn 1s ease-out 1s;
+        animation: fadeIn 1s var(--ease-out) 0.7s;
         animation-fill-mode: both;
     }
     .carousel-dots {
@@ -42,26 +57,64 @@
 .page-banner {
     height: var(--page-banner-height);
     @extend .flex-c-c;
+    @extend .relative;
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(20, 20, 20, 0.55));
+        z-index: 1;
+    }
     .banner-title {
-        color: #d61c22;
+        color: #fff;
         margin-top: var(--header-height);
+        z-index: 2;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
         animation: text 1.5s linear;
         @extend .font-50-pb;
         @extend .absolute;
+        &::after {
+            content: "";
+            display: block;
+            width: 5.6rem;
+            height: 0.3rem;
+            margin: 1.2rem auto 0;
+            border-radius: var(--pill-radius);
+            background: var(--brand-red-hot);
+        }
     }
     .img-wrap {
         overflow: hidden;
         height: 100%;
         width: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.04);
+        }
     }
 }
 // --page banner-end
 
 // media-query
 @media screen and (max-width: 768px) {
+    .banner {
+        &-title {
+            font-size: 2.4rem;
+            letter-spacing: 0.12em;
+        }
+        &-subtitle {
+            font-size: 3.4rem;
+        }
+    }
     .page-banner {
         .banner-title {
-            font-size: 4rem;
+            font-size: 3.2rem;
+            text-align: center;
+            padding-inline: 1.5rem;
         }
         .banner-subtitle {
             font-size: 5rem;

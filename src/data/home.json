@@ -1,0 +1,53 @@
+{
+  "banner": {
+    "title": "Welcome to",
+    "subtitle": "National Legal Counsel",
+    "ctaLabel": "Contact Us",
+    "ctaPath": "/contact",
+    "slides": [
+      {
+        "id": "img-1",
+        "src": "../images/banner-1.jpeg",
+        "next": "img-2",
+        "prev": "img-3"
+      },
+      {
+        "id": "img-2",
+        "src": "../images/banner-2.jpeg",
+        "next": "img-3",
+        "prev": "img-1"
+      },
+      {
+        "id": "img-3",
+        "src": "../images/banner-3.jpeg",
+        "next": "img-1",
+        "prev": "img-2"
+      }
+    ]
+  },
+  "lawAssociates": {
+    "heading": "national legal counsel",
+    "subHeading": "law firm in Nepal",
+    "title": "legal service per excellence",
+    "text": "National Legal counsel is a distinguished law firm based in Nepal, dedicated to delivering exceptional legal services with integrity, professionalism, and precision. We specialize in a wide range of legal fields, including corporate law, dispute resolution, intellectual property, and family law, ensuring that our clients receive comprehensive and tailored solutions. With a team of experienced attorneys, we are committed to upholding the highest standards of legal excellence, offering strategic advice and effective representation. At National Legal counsel, we believe in building lasting relationships based on trust, transparency, and results, making us the trusted partner for individuals and businesses navigating complex legal challenges.",
+    "image": "https://cdn.pixabay.com/photo/2024/05/09/22/15/ai-generated-8751926_640.jpg"
+  },
+  "practiceAreaSection": {
+    "title": "Practice area",
+    "subtitle": "Practice Areas being practiced by Lawin & Partners: A best Law Firm in Nepal",
+    "viewMoreLabel": "Click for more",
+    "viewMorePath": "/practicearea"
+  },
+  "teamSection": {
+    "title": "our Team"
+  },
+  "publicationsSection": {
+    "title": "publications"
+  },
+  "awardsSection": {
+    "title": "award and recognition"
+  },
+  "clientsSection": {
+    "title": "our client"
+  }
+}

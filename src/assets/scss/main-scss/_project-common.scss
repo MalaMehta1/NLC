@@ -1,4 +1,14 @@
 @use "../config" as *;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 img {
   height: auto;
   image-rendering: -webkit-optimize-contrast;

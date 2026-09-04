@@ -6,7 +6,8 @@ const SectionHeader = ({titleTxt, subTitleTxt}) => {
         <h2 className='section-title'>
           <span className='title-text'>{titleTxt}</span>
         </h2>
-        <h3 className='section-subtitle'>{subTitleTxt}</h3>
+        <div className='section-accent' aria-hidden="true"></div>
+        {subTitleTxt ? <h3 className='section-subtitle'>{subTitleTxt}</h3> : null}
       </div>
   )
 }

@@ -6,18 +6,28 @@
     @extend .font-16-pm;
     @extend .p-2-3;
     @extend .half-radius;
+    letter-spacing: 0.02em;
     &-primary{
         background:#fff;
-        box-shadow: rgba(181,159,120, 0.2) 0px 2px 8px 0px;
-        color: #ec1d25;
-        transition: all 200ms linear;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        color: var(--brand-red-hot);
+        border: 1px solid transparent;
+        transition: all 280ms var(--ease-out);
         &:hover{
-            background:#ec1d25;
+            background: var(--brand-red-hot);
             color:#fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(214, 28, 34, 0.35);
         }
     }
     &-underline{
-        border-bottom: .2rem solid #000;
-        padding-bottom: .2rem;;
+        border-bottom: .2rem solid var(--brand-red);
+        padding-bottom: .2rem;
+        color: var(--brand-ink);
+        transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
+        &:hover {
+            color: var(--brand-red);
+            border-color: var(--brand-red-deep);
+        }
     }
 }

@@ -1,71 +1,55 @@
 import React from 'react'
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaSquareInstagram } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaFacebookF, FaLinkedinIn, FaPhoneAlt } from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa6'
+import { teamData } from '../../data'
+
+const socialIcons = {
+  facebook: FaFacebookF,
+  instagram: FaInstagram,
+  linkedin: FaLinkedinIn,
+}
 
 const TeamCard = () => {
-    return (
-        <div className="team-card flex gap-10 flex-wrap flex-c-c">
-            <div className="box shadow-sm">
-                <div className="image-wrapper flex">
-                    <img className="img-fluid" src="../images/team/image-1.jpeg" alt="..." />
-                </div>
-                <div className="box-desc">
-                    <h5>Ramprawesh Yadav </h5>
-                    <div>Founding partner...</div>
-                    <div>9820772703</div>
-                    {/* <p>ramprawesh.advocate@gmail.com</p> */}
-                </div>
-                <ul className="social flex-c-c gap-3">
-
-                    <li className='social-link-item'>
-                        <a href='https://www.facebook.com/profile.php?id=100089449543905' className="social-link ">
-                            <FaFacebookSquare className='facebook-link' />
-                        </a>
+  return (
+    <div className="team-card">
+      {teamData.members.map((member) => (
+        <article className="team-member" key={member.name}>
+          <div className="team-member__media">
+            <img src={member.image} alt={member.name} />
+            <div className="team-member__overlay">
+              <ul className="team-member__social">
+                {member.social.map((item) => {
+                  const Icon = socialIcons[item.platform]
+                  if (!Icon) return null
+                  return (
+                    <li key={item.platform}>
+                      <a
+                        href={item.url}
+                        className={`team-member__social-link is-${item.platform}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${member.name} on ${item.platform}`}
+                      >
+                        <Icon />
+                      </a>
                     </li>
-                    <li className='social-link-item'>
-                        <a href='https://www.instagram.com/nationallegalcounsel/' className="social-link ">
-                            <FaSquareInstagram className='instagram-link' />
-                        </a>
-                    </li>
-                    <li className='social-link-item '>
-                        <a href='https://www.linkedin.com/in/national-legal-counsel-pvt-ltd-433212346/' className="social-link ">
-                            <FaLinkedin className='linkedin-link' />
-                        </a>
-                    </li>
-                </ul>
+                  )
+                })}
+              </ul>
             </div>
-            <div className="box shadow-sm">
-                <div className="image-wrapper flex">
-                    <img className="img-fluid" src="../images/team/image-2.jpeg" alt="..." />
-                </div>
-                <div className="box-desc">
-                    <h5>Ranjana Raut </h5>
-                    <div>Associate </div>
-                    <div>9802355291</div>
-                    {/* <p>ranzanaraut@gmail.com</p> */}
-                </div>
-                <ul className="social flex-c-c gap-3">
-                    <li className='social-link-item'>
-                        <a href='https://www.facebook.com/people/Ranjana-Raut/pfbid0o93qGujo4Z8mCCqhvXUXfpgyeVX8nWWtym6ngoyqrCBCvSDwe5LdneATZp2b26BLl/?rdid=EvFyCmMqrTHJbbFl&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1B8KGzirGn%2F' className="social-link ">
-                            <FaFacebookSquare className='facebook-link' />
-                        </a>
-                    </li>
-                    <li className='social-link-item'>
-                        <a href='https://www.instagram.com/accounts/login/?next=%2Franzhanaraut%2F&source=omni_redirect' className="social-link ">
-                            <FaSquareInstagram className='instagram-link' />
-                        </a>
-                    </li>
-                    <li className='social-link-item '>
-                        <a href='https://www.linkedin.com/in/ranjana-raut-16467b26a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' className="social-link ">
-                            <FaLinkedin className='linkedin-link' />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-    )
+          </div>
+          <div className="team-member__body">
+            <span className="team-member__role">{member.role}</span>
+            <h3 className="team-member__name">{member.name}</h3>
+            <a href={`tel:${member.phone}`} className="team-member__phone">
+              <FaPhoneAlt />
+              <span>{member.phone}</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  )
 }
 
 export default TeamCard

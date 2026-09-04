@@ -1,108 +1,123 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import { IoClose, IoCall } from 'react-icons/io5';
+import { siteData, navigationData, contactData } from '../../data';
 
 const Header = () => {
     const [isActive, setIsActive] = useState(false);
-    const [menuisActive, setmenuIsActive] = useState(false);
+    const [menuIsActive, setMenuIsActive] = useState(false);
 
-    const toggleHamburger = () => {
-        setmenuIsActive(!menuisActive);
-    };
-
+    const closeMenu = () => setMenuIsActive(false);
+    const toggleMenu = () => setMenuIsActive((open) => !open);
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollY = window.scrollY;
-            setIsActive(scrollY > 50);
+            setIsActive(window.scrollY > 50);
         };
 
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     useEffect(() => {
-        if (menuisActive) {
-            document.body.classList.add("noscroll");
+        if (menuIsActive) {
+            document.body.classList.add('noscroll');
         } else {
-            document.body.classList.remove("noscroll");
+            document.body.classList.remove('noscroll');
         }
 
-        // Cleanup function to ensure class is removed when component unmounts
         return () => {
-            document.body.classList.remove("no-scroll");
+            document.body.classList.remove('noscroll');
         };
-    }, [menuisActive]);
+    }, [menuIsActive]);
 
+    useEffect(() => {
+        const onKeyDown = (event) => {
+            if (event.key === 'Escape') closeMenu();
+        };
+
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+    }, []);
 
     return (
-        <section className={`header-wrap ${isActive ? "active" : ""}`}>
+        <section className={`header-wrap ${isActive ? 'active' : ''} ${menuIsActive ? 'menu-open' : ''}`}>
             <div className='site-header container'>
                 <div className='header-logo'>
-                    <NavLink to = "/">
+                    <NavLink to="/" onClick={closeMenu}>
                         <div className='logo-img-wrap'>
-                            <img className='logo-img' src="../images/logo.png" alt="" />
+                            <img className='logo-img' src={siteData.logo} alt={siteData.firmName} />
                         </div>
                     </NavLink>
                 </div>
-                <div className={`navbar ${menuisActive ? "" : "hide-navbar"}`}>
+
+                <div
+                    className={`mobile-nav-backdrop ${menuIsActive ? 'is-visible' : ''}`}
+                    onClick={closeMenu}
+                    aria-hidden={!menuIsActive}
+                />
+
+                <nav className={`navbar ${menuIsActive ? 'is-open' : 'hide-navbar'}`} aria-label="Main navigation">
+                    <div className='mobile-nav-top'>
+                        <div className='mobile-nav-brand'>
+                            <img src={siteData.logo} alt="" className='mobile-nav-logo' />
+                            <div>
+                                <p className='mobile-nav-title'>{siteData.firmName}</p>
+                                <p className='mobile-nav-tagline'>{siteData.tagline}</p>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            className='mobile-nav-close'
+                            onClick={closeMenu}
+                            aria-label="Close menu"
+                        >
+                            <IoClose />
+                        </button>
+                    </div>
+
                     <ul className='menu'>
-                        <li className='menu-item'>
-                            <NavLink to = "/" className='menu-link'>home</NavLink>
-                        </li>
-                        <li className='menu-item'>
-                            <NavLink to = "/about" className='menu-link'>about us</NavLink>
-                        </li>
-                        {/* <li className='menu-item submenu'>
-                            <button className='menu-btn'>pages</button>
-                             <ul className='submenu-list'>
-                                <li className='submenu-item'>
-                                    <NavLink to = "/" className='submenu-link'>submenu-1</NavLink>
-                                </li>
-                                <li className='submenu-item'>
-                                    <NavLink to = "/" className='submenu-link'>submenu-1</NavLink>
-                                </li>
-                                <li className='submenu-item'>
-                                    <NavLink to = "/" className='submenu-link'>submenu-1</NavLink>
-                                </li>
-                                <li className='submenu-item'>
-                                    <NavLink to = "/" className='submenu-link'>submenu-1</NavLink>
-                                </li>
-                             </ul>
-                        </li> */}
-                        <li className='menu-item'>
-                            <NavLink to = "/practicearea" className='menu-link'>practice area</NavLink>
-                        </li>
-                        <li className='menu-item'>
-                            <NavLink to = "/service" className='menu-link'>our services</NavLink>
-                        </li>
-                        <li className='menu-item'>
-                            <NavLink to = "/publication" className='menu-link'>publications</NavLink>
-                        </li>
-                        <li className='menu-item'>
-                            <NavLink to = "/team" className='menu-link'>our team</NavLink>
-                        </li>
-                        <li className='menu-item'>
-                            <NavLink to = "/contact" className='menu-link'>contact us</NavLink>
-                        </li>
+                        {navigationData.links.map((link, index) => (
+                            <li
+                                className='menu-item'
+                                key={link.path}
+                                style={{ '--item-index': index }}
+                            >
+                                <NavLink
+                                    to={link.path}
+                                    className='menu-link'
+                                    onClick={closeMenu}
+                                >
+                                    {link.label}
+                                </NavLink>
+                            </li>
+                        ))}
                     </ul>
-                </div>
+                </nav>
+
                 <div className='header-contact'>
-                    <p className='text'>get free consultation</p>
-                    <p className='text'><a href="tel:9851323703" className='contact-num'>9851323703</a></p>
+                    <p className='text'>{siteData.consultationCta}</p>
+                    <p className='text'>
+                        <a href={`tel:${contactData.phone}`} className='contact-num contact-num--blink'>
+                            <IoCall className='contact-num__icon' aria-hidden="true" />
+                            <span>{contactData.phone}</span>
+                        </a>
+                    </p>
                 </div>
+
                 <div className='hamburger-menu'>
-                    <div
-                        className={`hamburger ${menuisActive ? "is-active" : ""}`}
-                        onClick={toggleHamburger}
+                    <button
+                        type="button"
+                        className={`hamburger ${menuIsActive ? 'is-active' : ''}`}
+                        onClick={toggleMenu}
                         id='hamburger'
+                        aria-label={menuIsActive ? 'Close menu' : 'Open menu'}
+                        aria-expanded={menuIsActive}
                     >
                         <span className="line"></span>
                         <span className="line"></span>
                         <span className="line"></span>
-                    </div>
+                    </button>
                 </div>
             </div>
         </section>
@@ -110,4 +125,3 @@ const Header = () => {
 }
 
 export default Header;
-

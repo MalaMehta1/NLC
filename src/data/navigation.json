@@ -1,0 +1,11 @@
+{
+  "links": [
+    { "label": "home", "path": "/" },
+    { "label": "about us", "path": "/about" },
+    { "label": "practice area", "path": "/practicearea" },
+    { "label": "our services", "path": "/service" },
+    { "label": "publications", "path": "/publication" },
+    { "label": "our team", "path": "/team" },
+    { "label": "contact us", "path": "/contact" }
+  ]
+}

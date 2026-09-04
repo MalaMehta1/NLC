@@ -1,0 +1,11 @@
+export { default as siteData } from './site.json';
+export { default as navigationData } from './navigation.json';
+export { default as contactData } from './contact.json';
+export { default as aboutData } from './about.json';
+export { default as homeData } from './home.json';
+export { default as practiceAreasData } from './practice-areas.json';
+export { default as servicesData } from './services.json';
+export { default as teamData } from './team.json';
+export { default as publicationsData } from './publications.json';
+export { default as awardsData } from './awards.json';
+export { default as clientsData } from './clients.json';

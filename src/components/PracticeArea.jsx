@@ -2,49 +2,32 @@ import React from 'react';
 import PracticeAreaCard from './Cards/PracticeAreaCard';
 import SectionHeader from './common/SectionHeader';
 import { NavLink } from 'react-router-dom';
+import { homeData, practiceAreasData } from '../data';
 
 const PracticeArea = () => {
-    const practiceAreas = [
-        {
-            titleTxt: "corporate law",
-            imgSrc: "images/practice-area/corporate-law.jpeg"
-        },
-        {
-            titleTxt: "family law",
-            imgSrc: "images/practice-area/family-law.jpeg"
-        },
-        {
-            titleTxt: "taxation law",
-            imgSrc: "images/practice-area/tax-law.jpeg"
-        },
-        {
-            titleTxt: "criminal law",
-            imgSrc: "https://www.floresmendez.com/wp-content/uploads/2024/09/GMB-Updates-2024-09-25T130324.834.jpg"
-        },
-        {
-            titleTxt: "cyber law",
-            imgSrc: "images/practice-area/cyber-law.jpeg"
-        }
-    ];
+    const { title, subtitle, viewMoreLabel, viewMorePath } = homeData.practiceAreaSection;
+    const featuredAreas = practiceAreasData.areas
+        .filter((area) => area.featured)
+        .sort((a, b) => (a.featuredOrder || 0) - (b.featuredOrder || 0));
 
     return (
         <div className='practice-area'>
             <SectionHeader 
-                titleTxt="Practice area" 
-                subTitleTxt="Practice Areas being practiced by Lawin & Partners: A best Law Firm in Nepal" 
+                titleTxt={title} 
+                subTitleTxt={subtitle} 
             />
             <div className='card-container container'>
-                {practiceAreas.map((area, index) => (
+                {featuredAreas.map((area) => (
                     <PracticeAreaCard 
-                        key={index} 
-                        titleTxt={area.titleTxt} 
-                        imgSrc={area.imgSrc} 
+                        key={area.title} 
+                        titleTxt={area.featuredTitle || area.title} 
+                        imgSrc={area.image} 
                     />
                 ))}
             </div>
             <div className='view-more container py-6 flex-c-c'>
-                <NavLink to='/practicearea' className='btn btn-primary'>
-                    Click for more
+                <NavLink to={viewMorePath} className='btn btn-primary'>
+                    {viewMoreLabel}
                 </NavLink>
             </div>
         </div>

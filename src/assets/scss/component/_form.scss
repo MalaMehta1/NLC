@@ -5,22 +5,33 @@
     @extend .font-15-pm;
     @extend .capitalize;
     @extend .mb-2;
-
 }
 .input-field{
-    border: 2px solid #d9d9d9;
+    border: 1.5px solid #d9d9d9;
+    background: #fff;
+    transition: border-color 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
     @extend .half-radius;
     @extend .p-2-3;
+    &:focus {
+        outline: none;
+        border-color: var(--brand-red);
+        box-shadow: 0 0 0 3px rgba(214, 28, 34, 0.12);
+    }
 }
 .error{
-    color: red;
+    color: var(--brand-red);
     @extend .font-12-pr;
-
+    @extend .mt-1;
 }
 .contact-form{
     flex-wrap: wrap;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-soft);
+    border-radius: 1.2rem;
     @extend .flex;
-    @extend .gap-2;
+    @extend .gap-3;
+    @extend .p-4;
     .field-wrap{
         @extend .flex-column;
     }

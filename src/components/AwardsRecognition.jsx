@@ -5,11 +5,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
 import SectionHeader from './common/SectionHeader';
+import { awardsData, homeData } from '../data';
 
 const AwardsRecognition = () => {
     return (
         <div className='awardRecognition-section '>
-           <SectionHeader titleTxt={"award and recognition"}/>
+           <SectionHeader titleTxt={homeData.awardsSection.title}/>
             <div className='flex-c-c'>
                 <div className="swiper-container">
                     <Swiper
@@ -33,43 +34,14 @@ const AwardsRecognition = () => {
                             prevEl: '.swiper-button-prev',
                         }}
                     >
-                        <SwiperSlide>
-                            <img
-                                src="https://img.freepik.com/free-vector/realistic-film-awards-illustration_23-2149330581.jpg?semt=ais_hybrid"
-                                alt="Slide 1"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img
-                                src="https://competition.adesignaward.com/images/golden-laurel-wreath.jpg"
-                                alt="Slide 2"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img
-                                src="https://img.freepik.com/free-vector/realistic-film-awards-illustration_23-2149330581.jpg?semt=ais_hybrid"
-                                alt="Slide 1"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img
-                                src="https://competition.adesignaward.com/images/golden-laurel-wreath.jpg"
-                                alt="Slide 2"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img
-                                src="https://img.freepik.com/free-vector/realistic-film-awards-illustration_23-2149330581.jpg?semt=ais_hybrid"
-                                alt="Slide 1"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img
-                                src="https://competition.adesignaward.com/images/golden-laurel-wreath.jpg"
-                                alt="Slide 2"
-                            />
-                        </SwiperSlide>
-
+                        {awardsData.items.map((award, index) => (
+                            <SwiperSlide key={`${award.alt}-${index}`}>
+                                <img
+                                    src={award.image}
+                                    alt={award.alt}
+                                />
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                     <div className="swiper-button-prev"></div>
                     <div className="swiper-button-next"></div>

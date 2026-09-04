@@ -4,6 +4,7 @@ import Footer from '../components/common/Footer'
 import PageBanner from '../components/common/PageBanner'
 import { useLocation } from 'react-router-dom'
 import Accordian from '../components/common/Accordian'
+import { servicesData } from '../data'
 
 const OurServices = () => {
   const location = useLocation();
@@ -17,7 +18,7 @@ const OurServices = () => {
         <PageBanner title={pathname}/>
         <div className='discription-wrap'>
           <p className='text'>
-          At National Legal Counsel, we offer a comprehensive range of legal services designed to meet the diverse needs of our clients. Whether you're seeking legal representation, advice, or document preparation, our team of skilled attorneys is committed to delivering efficient, practical, and client-focused solutions.
+          {servicesData.intro}
           </p>
         </div>
         <div className='accordain-container container'>

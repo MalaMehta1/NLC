@@ -2,7 +2,7 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(80px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
@@ -12,7 +12,7 @@
 
 @keyframes slideIn {
     from {
-        transform: translateX(-100px);
+        transform: translateX(-60px);
         opacity: 0;
     }
     to {
@@ -31,15 +31,17 @@
 
 @keyframes text {
     0% {
-        color: #000;
+        opacity: 0.4;
+        letter-spacing: 0.02em;
     }
 
-    30% {
-        letter-spacing: 25px;
+    40% {
+        letter-spacing: 0.16em;
     }
 
-    85% {
-        letter-spacing: 8px;
+    100% {
+        opacity: 1;
+        letter-spacing: 0.08em;
     }
 }
 
@@ -49,5 +51,37 @@
     }
     to {
         transform: translateX(-100%);
+    }
+}
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes phone-blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .banner-title,
+    .banner-subtitle,
+    .banner-contact,
+    .page-banner .banner-title,
+    .scroll-text,
+    .contact-num--blink {
+        animation: none !important;
     }
 }

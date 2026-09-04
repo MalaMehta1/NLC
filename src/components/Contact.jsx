@@ -3,8 +3,11 @@ import SectionHeader from './common/SectionHeader';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
+import { contactData } from '../data';
 
 const Contact = () => {
+  const { page, mapEmbedUrl } = contactData;
+
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -49,19 +52,16 @@ const Contact = () => {
 
   return (
     <section className='contact-section'>
-      <SectionHeader titleTxt={"Send us a message"} />
+      <SectionHeader titleTxt={page.sectionTitle} />
       <div className='contact content container'>
         <div className='contact-left w-50'>
           <div className='contact-text-wrap'>
-            <h3 className='title'>Get in touch with us</h3>
-            <p className='text'>
-              At National Legal Counsel, we are committed to providing expert legal solutions to meet your needs.
-              You can also fill out the contact form on our website, and our dedicated team will get back to you as soon as possible.
-            </p>
+            <h3 className='title'>{page.title}</h3>
+            <p className='text'>{page.description}</p>
           </div>
           <div className='map-wrap'>
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.6026570090694!2d85.31999047453517!3d27.692477326148815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19b1ce7d8c61%3A0x58bb28c5ee006d86!2sMaitighar%2C%20Kathmandu%2044600%2C%20Nepal!5e1!3m2!1sen!2sin!4v1736584281691!5m2!1sen!2sin"
+              src={mapEmbedUrl}
               width="100%"
               height="300"
               style={{border:0}}
@@ -139,7 +139,7 @@ const Contact = () => {
               </div>
 
               <div className='w-100 font-12'>
-                Disclaimer: The information collected by this form shall be used for client communication and identification purposes only.
+                {page.disclaimer}
               </div>
               <div className='w-100'>
                 <button type="submit" className='btn btn-primary' style={{paddingInline:"4rem"}}>Submit</button>

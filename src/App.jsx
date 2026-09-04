@@ -9,10 +9,15 @@ import OurTeam from './pages/OurTeam';
 import PublicationsPage from './pages/Publications';
 import PracticeArea from './pages/PracticeArea';
 import OurServices from './pages/OurServices';
+import ScrollEffects from './components/common/ScrollEffects';
+import WhatsAppFloat from './components/common/WhatsAppFloat';
+
 const App = () => {
   return (
     <div>
       <Router>
+        <ScrollEffects />
+        <WhatsAppFloat />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
@@ -24,7 +29,6 @@ const App = () => {
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>
-      
     </div>
   )
 }

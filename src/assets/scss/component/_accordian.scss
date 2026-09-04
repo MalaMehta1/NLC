@@ -1,25 +1,47 @@
-
-
 @use '../config/' as *;
 
 .accordian-read-more{
     .title{
-        color: #d61c22;
+        color: var(--brand-red);
         @extend .font-20-pb;
         @extend .uppercase;
+        letter-spacing: 0.03em;
+        @extend .mb-1;
     }
    .block-item-text{
-    background-color: #ececeb;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 0.35rem solid var(--brand-red);
+    box-shadow: var(--shadow-soft);
+    transition: transform 280ms var(--ease-out), box-shadow 280ms var(--ease-out);
     @extend .p-5;
     @extend .m-5;
     @extend .half-radius;
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: var(--shadow-lift);
+    }
    }
    .text{
+    color: var(--brand-muted);
+    line-height: 1.7;
     @extend .font-14-pr;
    }
    .content-list{
     list-style: circle;
+    @extend .mt-2;
+    animation: fadeIn 0.35s var(--ease-out);
+   }
+   .read-more-trigger {
+        @extend .mt-2;
    }
 }
 
-
+@media screen and (max-width: 768px) {
+    .accordian-read-more {
+        .block-item-text {
+            margin: 1.2rem 0;
+            padding: 2rem;
+        }
+    }
+}

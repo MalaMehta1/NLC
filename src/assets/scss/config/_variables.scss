@@ -34,6 +34,20 @@ $animation-delay-step: 0.1s;
   --hsl-pure-white: 0, 0%, 100%;
   --pure-black: hsl(0, 0%, 0%);
   --hsl-pure-black: 0, 0%, 0%;
+
+  // brand tokens (National Legal Counsel)
+  --brand-red: #d61c22;
+  --brand-red-hot: #ec1d25;
+  --brand-red-deep: #a81419;
+  --brand-ink: #141414;
+  --brand-muted: #666666;
+  --brand-surface: #f7f6f3;
+  --brand-surface-alt: #ececeb;
+  --brand-border: rgba(214, 28, 34, 0.18);
+  --shadow-soft: 0 8px 24px rgba(20, 20, 20, 0.08);
+  --shadow-lift: 0 16px 40px rgba(20, 20, 20, 0.14);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
   // non color variables
   --base-font-size: 62.5%;
   --container-max-width: 100%;

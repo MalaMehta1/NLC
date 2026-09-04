@@ -1,29 +1,9 @@
-import { Button } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { homeData } from '../data';
 
 const Banner = () => {
-  // Slide data stored in an array
-  const slides = [
-    {
-      id: "img-1",
-      src: "../images/banner-1.jpeg",
-      next: "img-2",
-      prev: "img-3",
-    },
-    {
-      id: "img-2",
-      src: "../images/banner-2.jpeg",
-      next: "img-3",
-      prev: "img-1",
-    },
-    {
-      id: "img-3",
-      src: "../images/banner-3.jpeg",
-      next: "img-1",
-      prev: "img-2",
-    },
-  ];
+  const { slides, title, subtitle, ctaLabel, ctaPath } = homeData.banner;
 
   // State to track the current slide
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -85,11 +65,11 @@ const Banner = () => {
         </ul>
       </div>
       <div className="banner-content container">
-        <div className="banner-title">Welcome to</div>
-        <div className="banner-subtitle">National Legal Counsel</div>
+        <div className="banner-title">{title}</div>
+        <div className="banner-subtitle">{subtitle}</div>
         <div className="banner-contact">
-          <NavLink to="/contact" className="btn btn-primary">
-            Contact Us
+          <NavLink to={ctaPath} className="btn btn-primary">
+            {ctaLabel}
           </NavLink>
         </div>
       </div>

@@ -1,0 +1,32 @@
+{
+  "intro": [
+    "At National Legal Counsel (NLC), we take pride in being one of Nepal’s fastest-growing and most trusted law firms. Headquartered in Kathmandu, with branch offices in Jeetpursimara and an extensive network of partner offices in major cities across the nation, we are committed to delivering exceptional legal services throughout Nepal.",
+    "Founded on a vision of excellence, NLC is the result of a partnership between two outstanding legal professionals, Mr. Ramprawesh Yadav and Ms. Ranjana Raut. Both distinguished graduates and accomplished attorneys, their shared ambition to revolutionize the legal landscape has driven NLC to become a leader in Nepal’s legal industry."
+  ],
+  "mission": {
+    "heading": "our mission",
+    "text": "At NLC, our mission is to provide innovative, practical, and client-centered legal solutions. We are driven by a commitment to uphold justice, protect our clients’ rights, and offer strategic guidance to navigate the complexities of the legal system."
+  },
+  "differentiators": {
+    "heading": "What Sets Us Apart?",
+    "items": [
+      {
+        "title": "Nationwide Reach:",
+        "text": " With offices in key cities and a robust networking presence, we ensure accessible legal services wherever you are."
+      },
+      {
+        "title": "Expert Legal Team: ",
+        "text": "Our attorneys bring a wealth of knowledge and expertise in diverse practice areas, delivering top-tier representation and counsel."
+      },
+      {
+        "title": "Client-First Philosophy:",
+        "text": " We prioritize understanding our clients’ needs and delivering tailored solutions to achieve their goals."
+      },
+      {
+        "title": "Reputation for Excellence:",
+        "text": " Renowned for our dedication and success, we have built a legacy of trust and excellence in the legal field."
+      }
+    ]
+  },
+  "image": "https://cdn.pixabay.com/photo/2024/05/09/22/15/ai-generated-8751926_640.jpg"
+}
