@@ -30,7 +30,6 @@ const Footer = () => {
                         <div className='logo-img-wrap'>
                             <img className='logo-img' src={siteData.logo} alt={siteData.firmName} />
                         </div>
-                        <h1 className='logo-text'>{siteData.firmName}</h1>
                     </a>
                 </div>
                 <div className='social-link-wrap'>

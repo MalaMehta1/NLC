@@ -15,7 +15,7 @@
     &:focus {
         outline: none;
         border-color: var(--brand-red);
-        box-shadow: 0 0 0 3px rgba(214, 28, 34, 0.12);
+        box-shadow: 0 0 0 3px rgba(var(--brand-rgb), 0.12);
     }
 }
 .error{

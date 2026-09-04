@@ -60,11 +60,7 @@ const Header = () => {
                 <nav className={`navbar ${menuIsActive ? 'is-open' : 'hide-navbar'}`} aria-label="Main navigation">
                     <div className='mobile-nav-top'>
                         <div className='mobile-nav-brand'>
-                            <img src={siteData.logo} alt="" className='mobile-nav-logo' />
-                            <div>
-                                <p className='mobile-nav-title'>{siteData.firmName}</p>
-                                <p className='mobile-nav-tagline'>{siteData.tagline}</p>
-                            </div>
+                            <img src={siteData.logo} alt={siteData.firmName} className='mobile-nav-logo' />
                         </div>
                         <button
                             type="button"
@@ -96,7 +92,7 @@ const Header = () => {
                 </nav>
 
                 <div className='header-contact'>
-                    <p className='text'>{siteData.consultationCta}</p>
+                    <p className='text header-contact__cta'>{siteData.consultationCta}</p>
                     <p className='text'>
                         <a href={`tel:${contactData.phone}`} className='contact-num contact-num--blink'>
                             <IoCall className='contact-num__icon' aria-hidden="true" />
@@ -119,6 +115,14 @@ const Header = () => {
                         <span className="line"></span>
                     </button>
                 </div>
+            </div>
+
+            <div className='mobile-consult-bar'>
+                <span className='mobile-consult-bar__cta'>{siteData.consultationCta}</span>
+                <a href={`tel:${contactData.phone}`} className='mobile-consult-bar__phone contact-num--blink'>
+                    <IoCall aria-hidden="true" />
+                    <span>{contactData.phone}</span>
+                </a>
             </div>
         </section>
     )

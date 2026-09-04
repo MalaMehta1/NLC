@@ -49,7 +49,7 @@
         z-index: 1;
     }
     .card-title-link {
-        color: #1e2a5e;
+        color: var(--brand-blue-deep);
         @extend .font-16-pm;
         @extend .capitalize;
     }
@@ -210,7 +210,7 @@
         margin-bottom: 0.8rem;
         padding: 0.4rem 1.2rem;
         border-radius: var(--pill-radius);
-        background: rgba(214, 28, 34, 0.08);
+        background: rgba(var(--brand-rgb), 0.08);
         color: var(--brand-red);
         font-size: 1.2rem;
         font-weight: 600;

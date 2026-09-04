@@ -45,7 +45,7 @@
 }
 .associates-section {
     background:
-        radial-gradient(circle at top right, rgba(214, 28, 34, 0.06), transparent 40%),
+        radial-gradient(circle at top right, rgba(var(--brand-rgb), 0.06), transparent 40%),
         linear-gradient(180deg, var(--brand-surface) 0%, #fff 100%);
 }
 .associates-wrap {
@@ -146,7 +146,7 @@
     &:hover {
         transform: translateY(-0.4rem);
         background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(214, 28, 34, 0.55);
+        border-color: rgba(var(--brand-rgb), 0.55);
     }
     &-link {
         @extend .flex-fs-fs;
@@ -197,7 +197,7 @@
 }
 .contact-section {
     background:
-        radial-gradient(circle at bottom left, rgba(214, 28, 34, 0.05), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(var(--brand-rgb), 0.05), transparent 45%),
         #fff;
     @extend .pb-8;
     .contact {
@@ -328,7 +328,7 @@
     overflow: hidden;
     background: linear-gradient(90deg, #0c0c0c, #1a1a1a 50%, #0c0c0c);
     color: #fff;
-    border-top: 1px solid rgba(214, 28, 34, 0.35);
+    border-top: 1px solid rgba(var(--brand-rgb), 0.35);
     @extend .z5;
 }
 
@@ -343,7 +343,7 @@
 
 .team-card-container {
     background:
-        radial-gradient(circle at top center, rgba(214, 28, 34, 0.05), transparent 55%),
+        radial-gradient(circle at top center, rgba(var(--brand-rgb), 0.05), transparent 55%),
         linear-gradient(180deg, #fff 0%, var(--brand-surface) 100%);
     @extend .py-6;
     @extend .pb-10;
@@ -449,7 +449,7 @@
         }
     }
     .footer-logo .logo-img-wrap {
-        width: min(16rem, 70vw);
+        width: min(22rem, 80vw);
     }
     .team-card {
         padding-inline: 1.2rem;
