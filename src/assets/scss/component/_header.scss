@@ -20,18 +20,14 @@
 
         .menu-link,
         .menu-btn {
-            color: black;
+            color: #000000;
 
             &::after {
                 background: var(--brand-red);
             }
-        }
 
-        .navbar .menu-link {
-            color: #ffffff;
-
-            &::after {
-                background: transparent;
+            &.active {
+                color: var(--brand-red);
             }
         }
 
@@ -369,7 +365,8 @@
                 transition: background 200ms var(--ease-out), color 200ms var(--ease-out);
 
                 &::after {
-                    display: none;
+                    display: none !important;
+                    background: transparent !important;
                 }
 
                 &:hover,

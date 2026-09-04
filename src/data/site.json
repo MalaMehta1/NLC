@@ -5,5 +5,56 @@
   "pageBannerImage": "../images/banner-1.jpeg",
   "tagline": "law firm in Nepal",
   "consultationCta": "get free consultation",
-  "disclaimer": "This website is created for the purpose of disseminating information and shall not be construed as an instrument for advertisement, marketing and or solicitation against the code of conduct of Nepal Bar Council."
+  "disclaimer": "This website is created for the purpose of disseminating information and shall not be construed as an instrument for advertisement, marketing and or solicitation against the code of conduct of Nepal Bar Council.",
+  "seo": {
+    "siteUrl": "https://nationallegalcounsel.com",
+    "defaultTitle": "National Legal Counsel | Law Firm in Nepal",
+    "titleTemplate": "%s | National Legal Counsel",
+    "defaultDescription": "National Legal Counsel (NLC) is a trusted law firm in Nepal offering legal consultation, litigation, corporate law, family law, taxation, cyber law, and more across Kathmandu and nationwide.",
+    "keywords": [
+      "law firm Nepal",
+      "National Legal Counsel",
+      "NLC lawyer Kathmandu",
+      "legal consultation Nepal",
+      "corporate law Nepal",
+      "family law Nepal",
+      "criminal lawyer Nepal",
+      "taxation law Nepal",
+      "cyber law Nepal"
+    ],
+    "author": "National Legal Counsel",
+    "ogImage": "/images/logo.png",
+    "twitterHandle": "@nlegalcounsel",
+    "locale": "en_NP",
+    "pages": {
+      "/": {
+        "title": "National Legal Counsel | Law Firm in Nepal",
+        "description": "Trusted law firm in Nepal providing expert legal services in corporate, family, criminal, taxation, cyber law, and dispute resolution. Get free consultation."
+      },
+      "/about": {
+        "title": "About Us",
+        "description": "Learn about National Legal Counsel, founded by Ramprawesh Yadav and Ranjana Raut — a fast-growing law firm serving clients across Nepal."
+      },
+      "/practicearea": {
+        "title": "Practice Areas",
+        "description": "Explore NLC practice areas including civil, criminal, corporate, family, intellectual property, taxation, labour, immigration, litigation, and cyber law."
+      },
+      "/service": {
+        "title": "Our Services",
+        "description": "Legal consultation, document drafting, dispute resolution, litigation, compliance advisory, and tailored legal solutions from National Legal Counsel."
+      },
+      "/publication": {
+        "title": "Publications",
+        "description": "Read publications and insights from National Legal Counsel on FDI, courts, AI in law, and Nepal’s evolving legal landscape."
+      },
+      "/team": {
+        "title": "Our Team",
+        "description": "Meet the National Legal Counsel team — experienced attorneys dedicated to client-centered legal representation in Nepal."
+      },
+      "/contact": {
+        "title": "Contact Us",
+        "description": "Contact National Legal Counsel for a free consultation. Head office in Maitighar, Kathmandu and branch office in Bara, Nepal."
+      }
+    }
+  }
 }

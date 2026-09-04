@@ -34,8 +34,7 @@ const reveal = (targets, vars = {}) => {
         scrollTrigger: {
           trigger: el,
           start: vars.start ?? 'top 88%',
-          toggleActions: 'play none none none',
-          once: true,
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -66,8 +65,7 @@ const revealGroup = (containerSelector, childSelector, vars = {}) => {
         scrollTrigger: {
           trigger: container,
           start: vars.start ?? 'top 85%',
-          toggleActions: 'play none none none',
-          once: true,
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -143,8 +141,7 @@ const ScrollEffects = () => {
             scrollTrigger: {
               trigger: footer,
               start: 'top 92%',
-              toggleActions: 'play none none none',
-              once: true,
+              toggleActions: 'play none none reverse',
             },
           }
         );

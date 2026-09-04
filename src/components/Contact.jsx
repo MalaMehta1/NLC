@@ -36,8 +36,10 @@ const Contact = () => {
     };
 
     emailjs.send(
-      'service_cve6b06',        // Your Email.js Service ID
-      'template_907gd6a',       // Your Email.js Template ID
+      // 'service_cve6b06', 
+      'service_j0czije'  ,     // Your Email.js Service ID
+      // 'template_907gd6a', 
+      'template_jxgig3d'  ,    // Your Email.js Template ID
       templateParams,
       'CeceF_8BY58QNSZH6'         // Replace with your Email.js Public Key
     )
