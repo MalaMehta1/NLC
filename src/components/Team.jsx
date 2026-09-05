@@ -1,15 +1,29 @@
-import React from 'react'
-import TeamCard from './Cards/TeamCard'
-import SectionHeader from './common/SectionHeader'
-import { homeData } from '../data'
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import TeamCard from './Cards/TeamCard';
+import SectionHeader from './common/SectionHeader';
+import { homeData } from '../data';
 
 const Team = () => {
-  return (
-    <div className='team-card-container flex-column-c-c gap-5 pb-8'>
-       <SectionHeader titleTxt={homeData.teamSection.title} />
-        <TeamCard/>
-    </div>
-  )
-}
+  const location = useLocation();
+  const { title, subtitle, viewMoreLabel, viewMorePath } = homeData.teamSection;
+  const showViewMore = Boolean(viewMorePath) && location.pathname !== viewMorePath;
 
-export default Team
+  return (
+    <section className="team-section">
+      <div className="team-section__inner container">
+        <SectionHeader titleTxt={title} subTitleTxt={subtitle} />
+        <TeamCard />
+        {showViewMore ? (
+          <div className="team-section__more">
+            <NavLink to={viewMorePath} className="btn btn-primary">
+              {viewMoreLabel}
+            </NavLink>
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+};
+
+export default Team;

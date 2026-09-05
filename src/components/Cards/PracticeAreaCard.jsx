@@ -1,18 +1,27 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { IoArrowForward } from 'react-icons/io5';
 
-const PracticeAreaCard = ({ titleTxt, imgSrc }) => {
+const PracticeAreaCard = ({ titleTxt, imgSrc, excerpt, index, href = '/practicearea' }) => {
+  const order = String(index + 1).padStart(2, '0');
+
   return (
-    <div className='card practiceArea-card'>
-      <div className='card-thumbnail'>
-        <a href="/practicearea">
-          <img src={imgSrc} className='card-img' alt="" />
-        </a>
+    <NavLink to={href} className="practiceArea-card">
+      <div className="practiceArea-card__media" aria-hidden="true">
+        <img src={imgSrc} alt="" />
       </div>
-      <div className='card-footer'>
-        <h2 className='card-title'> <a href="/practicearea" className='card-title-link'>{titleTxt}</a></h2>
+      <div className="practiceArea-card__overlay" aria-hidden="true" />
+      <div className="practiceArea-card__body">
+        <span className="practiceArea-card__index">{order}</span>
+        <h3 className="practiceArea-card__title">{titleTxt}</h3>
+        {excerpt ? <p className="practiceArea-card__excerpt">{excerpt}</p> : null}
+        <span className="practiceArea-card__cta">
+          Explore
+          <IoArrowForward aria-hidden="true" />
+        </span>
       </div>
-    </div>
-  )
-}
+    </NavLink>
+  );
+};
 
-export default PracticeAreaCard
+export default PracticeAreaCard;

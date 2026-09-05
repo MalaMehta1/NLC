@@ -4,34 +4,40 @@ import SectionHeader from './common/SectionHeader';
 import { NavLink } from 'react-router-dom';
 import { homeData, practiceAreasData } from '../data';
 
-const PracticeArea = () => {
-    const { title, subtitle, viewMoreLabel, viewMorePath } = homeData.practiceAreaSection;
-    const featuredAreas = practiceAreasData.areas
-        .filter((area) => area.featured)
-        .sort((a, b) => (a.featuredOrder || 0) - (b.featuredOrder || 0));
+const toExcerpt = (text = '', max = 92) => {
+  const cleaned = text.replace(/\s+/g, ' ').trim();
+  if (cleaned.length <= max) return cleaned;
+  return `${cleaned.slice(0, max).replace(/\s+\S*$/, '')}…`;
+};
 
-    return (
-        <div className='practice-area'>
-            <SectionHeader 
-                titleTxt={title} 
-                subTitleTxt={subtitle} 
-            />
-            <div className='card-container container'>
-                {featuredAreas.map((area) => (
-                    <PracticeAreaCard 
-                        key={area.title} 
-                        titleTxt={area.featuredTitle || area.title} 
-                        imgSrc={area.image} 
-                    />
-                ))}
-            </div>
-            <div className='view-more container py-6 flex-c-c'>
-                <NavLink to={viewMorePath} className='btn btn-primary'>
-                    {viewMoreLabel}
-                </NavLink>
-            </div>
-        </div>
-    );
+const PracticeArea = () => {
+  const { title, subtitle, viewMoreLabel, viewMorePath } = homeData.practiceAreaSection;
+  const featuredAreas = practiceAreasData.areas
+    .filter((area) => area.featured)
+    .sort((a, b) => (a.featuredOrder || 0) - (b.featuredOrder || 0));
+
+  return (
+    <section className="practice-area">
+      <SectionHeader titleTxt={title} subTitleTxt={subtitle} />
+      <div className="practice-area__grid container">
+        {featuredAreas.map((area, index) => (
+          <PracticeAreaCard
+            key={area.title}
+            index={index}
+            titleTxt={area.featuredTitle || area.title}
+            imgSrc={area.image}
+            excerpt={toExcerpt(area.excerpt || area.description)}
+            href={viewMorePath}
+          />
+        ))}
+      </div>
+      <div className="view-more container">
+        <NavLink to={viewMorePath} className="btn btn-primary practice-area__more">
+          {viewMoreLabel}
+        </NavLink>
+      </div>
+    </section>
+  );
 };
 
 export default PracticeArea;

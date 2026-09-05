@@ -1,11 +1,46 @@
 {
   "firmName": "National Legal Counsel",
   "firmShortName": "NLC",
-  "logo": "../images/logo.png",
-  "pageBannerImage": "../images/banner-1.jpeg",
-  "tagline": "law firm in Nepal",
+  "logo": "/images/logo.png",
+  "pageBannerImage": "/images/banner-1.jpeg",
+  "tagline": "Trusted legal counsel across Nepal",
   "consultationCta": "get free consultation",
   "disclaimer": "This website is created for the purpose of disseminating information and shall not be construed as an instrument for advertisement, marketing and or solicitation against the code of conduct of Nepal Bar Council.",
+  "pageBanner": {
+    "defaultImage": "/images/banner-1.jpeg",
+    "pages": {
+      "/about": {
+        "title": "About Us",
+        "subtitle": "A client-centered firm built on integrity, clarity, and results.",
+        "image": "/images/banner-2.jpeg"
+      },
+      "/practicearea": {
+        "title": "Practice Areas",
+        "subtitle": "Comprehensive counsel across civil, corporate, family, and more.",
+        "image": "/images/banner-3.jpeg"
+      },
+      "/service": {
+        "title": "Our Services",
+        "subtitle": "Practical legal solutions tailored to individuals and businesses.",
+        "image": "/images/banner-1.jpeg"
+      },
+      "/publication": {
+        "title": "Publications",
+        "subtitle": "Insights on Nepal’s evolving legal and regulatory landscape.",
+        "image": "/images/banner-2.jpeg"
+      },
+      "/team": {
+        "title": "Our Team",
+        "subtitle": "Experienced attorneys dedicated to strong client advocacy.",
+        "image": "/images/banner-3.jpeg"
+      },
+      "/contact": {
+        "title": "Contact Us",
+        "subtitle": "Reach our Kathmandu and Bara offices for a free consultation.",
+        "image": "/images/banner-1.jpeg"
+      }
+    }
+  },
   "seo": {
     "siteUrl": "https://nationallegalcounsel.com",
     "defaultTitle": "National Legal Counsel | Law Firm in Nepal",

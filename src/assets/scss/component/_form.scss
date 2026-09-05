@@ -1,38 +1,91 @@
 @use '../config/' as *;
 
-.label{
-    color: #555555;
+.label {
+    color: var(--brand-ink);
     @extend .font-15-pm;
     @extend .capitalize;
     @extend .mb-2;
 }
-.input-field{
-    border: 1.5px solid #d9d9d9;
-    background: #fff;
-    transition: border-color 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+
+.input-field {
+    width: 100%;
+    border: 1.5px solid rgba(20, 103, 155, 0.14);
+    background: #f8fbfd;
+    transition: border-color 220ms var(--ease-out), box-shadow 220ms var(--ease-out), background 220ms var(--ease-out);
     @extend .half-radius;
     @extend .p-2-3;
+
     &:focus {
         outline: none;
+        background: #fff;
         border-color: var(--brand-red);
         box-shadow: 0 0 0 3px rgba(var(--brand-rgb), 0.12);
     }
+
+    &--textarea {
+        min-height: 14rem;
+        resize: vertical;
+    }
 }
-.error{
+
+.error {
     color: var(--brand-red);
     @extend .font-12-pr;
     @extend .mt-1;
 }
-.contact-form{
-    flex-wrap: wrap;
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    width: 100%;
+    padding: 3.2rem;
     background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: var(--shadow-soft);
-    border-radius: 1.2rem;
-    @extend .flex;
-    @extend .gap-3;
-    @extend .p-4;
-    .field-wrap{
-        @extend .flex-column;
+    border: 1px solid rgba(20, 103, 155, 0.1);
+    border-radius: 1.8rem;
+    box-shadow: 0 18px 48px rgba(8, 28, 45, 0.08);
+
+    &__intro {
+        margin-bottom: 0.4rem;
+
+        h3 {
+            margin: 0 0 0.6rem;
+            color: var(--brand-ink);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0;
+            color: var(--brand-muted);
+            font-size: 1.4rem;
+            line-height: 1.5;
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.6rem;
+    }
+
+    .field-wrap {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__disclaimer {
+        margin: 0;
+        color: var(--brand-muted);
+        font-size: 1.2rem;
+        line-height: 1.55;
+    }
+
+    &__submit {
+        align-self: flex-start;
+        min-width: 18rem;
+        text-align: center;
+        box-shadow: 0 10px 24px rgba(var(--brand-rgb), 0.22);
     }
 }

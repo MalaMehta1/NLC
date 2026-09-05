@@ -9,21 +9,26 @@
       "title": "criminal law",
       "description": "Criminal law involves rules and statutes that define conduct prohibited by the state because it threatens public safety and welfare. It includes prosecuting individuals or entities accused of crimes such as theft, assault, fraud, or murder. Criminal law seeks to punish offenders, deter criminal behavior, and provide justice to victims.",
       "image": "https://www.floresmendez.com/wp-content/uploads/2024/09/GMB-Updates-2024-09-25T130324.834.jpg",
+      "featuredTitle": "Criminal Law",
+      "excerpt": "Defense and advocacy in criminal matters with a focus on due process and fair outcomes.",
       "featured": true,
       "featuredOrder": 4
     },
     {
       "title": "business and corporate law",
       "description": "Business and corporate law encompasses the legal aspects of forming, operating, and dissolving businesses. This includes corporate governance, mergers and acquisitions, compliance with regulations, and resolving disputes related to business activities.",
-      "image": "images/practice-area/corporate-law.jpeg",
-      "featuredTitle": "corporate law",
+      "image": "/images/practice-area/corporate-law.jpeg",
+      "featuredTitle": "Corporate Law",
+      "excerpt": "Formation, governance, compliance, and commercial deals for growing businesses.",
       "featured": true,
       "featuredOrder": 1
     },
     {
       "title": "family law",
       "description": "Family law deals with legal matters related to familial relationships, including marriage, divorce, child custody, adoption, and issues of inheritance. It seeks to address disputes while prioritizing the well-being of individuals involved.",
-      "image": "images/practice-area/family-law.jpeg",
+      "image": "/images/practice-area/family-law.jpeg",
+      "featuredTitle": "Family Law",
+      "excerpt": "Sensitive guidance on marriage, custody, inheritance, and family disputes.",
       "featured": true,
       "featuredOrder": 2
     },
@@ -35,7 +40,9 @@
     {
       "title": "taxation law",
       "description": "Taxation law involves the rules and regulations governing the imposition of taxes on individuals and businesses. It includes advice on compliance, tax planning, and resolving disputes with tax authorities.",
-      "image": "images/practice-area/tax-law.jpeg",
+      "image": "/images/practice-area/tax-law.jpeg",
+      "featuredTitle": "Taxation Law",
+      "excerpt": "Planning, compliance, and dispute resolution with tax authorities.",
       "featured": true,
       "featuredOrder": 3
     },
@@ -77,7 +84,9 @@
     {
       "title": "cyber law",
       "description": "Cyber law addresses legal issues related to the internet, digital communications, and technology. It includes data protection, cybersecurity, online fraud, and intellectual property rights in the digital domain.",
-      "image": "images/practice-area/cyber-law.jpeg",
+      "image": "/images/practice-area/cyber-law.jpeg",
+      "featuredTitle": "Cyber Law",
+      "excerpt": "Data protection, online fraud, and digital-rights counsel for a connected world.",
       "featured": true,
       "featuredOrder": 5
     },

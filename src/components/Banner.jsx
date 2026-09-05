@@ -1,79 +1,110 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
 import { homeData } from '../data';
 
 const Banner = () => {
-  const { slides, title, subtitle, ctaLabel, ctaPath } = homeData.banner;
+  const {
+    slides,
+    title,
+    subtitle,
+    tagline,
+    ctaLabel,
+    ctaPath,
+    secondaryCtaLabel,
+    secondaryCtaPath,
+  } = homeData.banner;
 
-  // State to track the current slide
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Function to handle slide change
-  const changeSlide = (index) => {
+  const goToSlide = (index) => {
     setCurrentSlide(index);
   };
 
-  // Auto-slide functionality using useEffect
+  const goPrev = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length); // Move to the next slide
-    }, 3500); 
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4500);
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, [slides.length]);
 
   return (
-    <div className="banner">
-      <div className="carousel">
-        <ul className="slides">
-          {slides.map((slide, index) => (
-            <React.Fragment key={slide.id}>
-              <input
-                type="radio"
-                name="radio-buttons"
-                id={slide.id}
-                checked={currentSlide === index}
-                onChange={() => changeSlide(index)}
-              />
-              <li className="slide-container">
-                <div className="slide-image">
-                  <img src={slide.src} alt={`Slide ${index + 1}`} />
-                </div>
-                <div className="carousel-controls">
-                  <label htmlFor={slide.prev} className="prev-slide">
-                    <span>&lsaquo;</span>
-                  </label>
-                  <label htmlFor={slide.next} className="next-slide">
-                    <span>&rsaquo;</span>
-                  </label>
-                </div>
-              </li>
-            </React.Fragment>
-          ))}
-          <div className="carousel-dots">
-            {slides.map((_, index) => (
-              <label
-                key={`dot-${index}`}
-                htmlFor={slides[index].id}
-                className={`carousel-dot ${
-                  currentSlide === index ? "active" : ""
-                }`}
-                onClick={() => changeSlide(index)}
-              ></label>
-            ))}
+    <section className="banner" aria-label="Hero banner">
+      <div className="banner-media" aria-hidden="true">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`banner-slide ${currentSlide === index ? 'is-active' : ''}`}
+          >
+            <img src={slide.src} alt="" />
           </div>
-        </ul>
+        ))}
       </div>
+
+      <div className="banner-overlay" aria-hidden="true" />
+
       <div className="banner-content container">
-        <div className="banner-title">{title}</div>
-        <div className="banner-subtitle">{subtitle}</div>
-        <div className="banner-contact">
-          <NavLink to={ctaPath} className="btn btn-primary">
+        <p className="banner-title">{title}</p>
+        <h1 className="banner-subtitle">{subtitle}</h1>
+        <div className="banner-accent" aria-hidden="true" />
+        {tagline ? <p className="banner-tagline">{tagline}</p> : null}
+        <div className="banner-actions">
+          <NavLink to={ctaPath} className="btn btn-primary banner-btn">
             {ctaLabel}
           </NavLink>
+          {secondaryCtaLabel ? (
+            <NavLink to={secondaryCtaPath} className="btn banner-btn-secondary">
+              {secondaryCtaLabel}
+            </NavLink>
+          ) : null}
         </div>
       </div>
-    </div>
+
+      <button
+        type="button"
+        className="banner-nav banner-nav--prev"
+        onClick={goPrev}
+        aria-label="Previous slide"
+      >
+        <IoChevronBack />
+      </button>
+      <button
+        type="button"
+        className="banner-nav banner-nav--next"
+        onClick={goNext}
+        aria-label="Next slide"
+      >
+        <IoChevronForward />
+      </button>
+
+      <div className="banner-dots" role="tablist" aria-label="Banner slides">
+        {slides.map((slide, index) => (
+          <button
+            key={`dot-${slide.id}`}
+            type="button"
+            role="tab"
+            aria-selected={currentSlide === index}
+            aria-label={`Go to slide ${index + 1}`}
+            className={`banner-dot ${currentSlide === index ? 'is-active' : ''}`}
+            onClick={() => goToSlide(index)}
+          />
+        ))}
+      </div>
+
+      <div className="banner-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <i />
+      </div>
+    </section>
   );
 };
 
