@@ -11,11 +11,13 @@ import PracticeArea from './pages/PracticeArea';
 import OurServices from './pages/OurServices';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
 import Seo from './components/common/Seo';
+import ScrollToTop from './components/common/ScrollToTop';
 
 const App = () => {
   return (
     <div>
       <Router>
+        <ScrollToTop />
         <Seo />
         <WhatsAppFloat />
         <Routes>
