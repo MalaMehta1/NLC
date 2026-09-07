@@ -6,8 +6,11 @@
     margin: 0 auto;
     padding-inline: 2rem;
 }
-.noscroll {
+html.noscroll,
+body.noscroll {
     overflow: hidden;
+    overscroll-behavior: none;
+    height: 100%;
 }
 .section-header {
     @extend .relative;

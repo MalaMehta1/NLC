@@ -20,14 +20,28 @@ const Header = () => {
     }, []);
 
     useEffect(() => {
-        if (menuIsActive) {
-            document.body.classList.add('noscroll');
-        } else {
-            document.body.classList.remove('noscroll');
-        }
+        if (!menuIsActive) return undefined;
+
+        const scrollY = window.scrollY;
+        const { body, documentElement } = document;
+
+        body.classList.add('noscroll');
+        documentElement.classList.add('noscroll');
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
+        body.style.left = '0';
+        body.style.right = '0';
+        body.style.width = '100%';
 
         return () => {
-            document.body.classList.remove('noscroll');
+            body.classList.remove('noscroll');
+            documentElement.classList.remove('noscroll');
+            body.style.position = '';
+            body.style.top = '';
+            body.style.left = '';
+            body.style.right = '';
+            body.style.width = '';
+            window.scrollTo(0, scrollY);
         };
     }, [menuIsActive]);
 
