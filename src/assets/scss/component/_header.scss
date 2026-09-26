@@ -30,11 +30,30 @@
 }
 
 .site-header {
-    @extend .flex-sb-c;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    gap: 1.2rem;
     position: relative;
     min-height: var(--header-height);
+    padding-block: 0;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    min-height: 7.2rem;
+    padding-block: 0.8rem;
+}
+
+.header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-top: 1px solid rgba(20, 103, 155, 0.1);
 }
 
 .header-logo {
@@ -58,20 +77,28 @@
     }
 }
 
+.navbar {
+    width: 100%;
+}
+
 .menu {
     @extend .flex-c-c;
+    flex-wrap: wrap;
+    gap: 0.2rem 0;
+    width: 100%;
+    justify-content: center;
 
     &-item {
-        height: var(--header-height);
+        height: 4.4rem;
         @extend .flex-c-c;
         @extend .relative;
     }
 
     &-item,
     &-btn {
-        @extend .font-18-pm;
+        @extend .font-16-pm;
         @extend .capitalize;
-        @extend .mx-3;
+        @extend .mx-2;
     }
 
     &-link,
@@ -80,6 +107,7 @@
         @extend .pb-1;
         @extend .relative;
         transition: color 200ms var(--ease-out);
+        white-space: nowrap;
 
         &::after {
             content: "";
@@ -108,32 +136,64 @@
 
 .header-contact {
     flex-shrink: 0;
-    text-align: center;
+}
 
-    .text {
-        color: var(--brand-ink);
-        @extend .capitalize;
-        @extend .font-14-pm;
-        @extend .mb-1;
+.header-consult {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 0.7rem 0.7rem 0.7rem 1.6rem;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--pill-radius);
+    background: linear-gradient(135deg, rgba(var(--brand-rgb), 0.08) 0%, rgba(var(--brand-rgb), 0.14) 100%);
+    border: 1px solid rgba(var(--brand-rgb), 0.18);
+    box-shadow: 0 6px 18px rgba(13, 79, 120, 0.08);
+    transition:
+        transform 220ms var(--ease-out),
+        box-shadow 220ms var(--ease-out),
+        border-color 220ms var(--ease-out),
+        background 220ms var(--ease-out);
+
+    &:hover {
+        transform: translateY(-1px);
+        border-color: rgba(var(--brand-rgb), 0.35);
+        box-shadow: 0 10px 24px rgba(13, 79, 120, 0.14);
+        background: linear-gradient(135deg, rgba(var(--brand-rgb), 0.12) 0%, rgba(var(--brand-rgb), 0.2) 100%);
     }
 
-    .contact-num {
-        color: var(--brand-blue);
-        @extend .font-16-pb;
+    &__label {
+        color: var(--brand-ink);
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        white-space: nowrap;
+    }
+
+    &__phone {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
         gap: 0.6rem;
-
-        &__icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        &--blink {
-            animation: phone-blink 1.4s ease-in-out infinite;
-        }
+        padding: 0.7rem 1.4rem;
+        border-radius: var(--pill-radius);
+        background: var(--brand-blue);
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        box-shadow: 0 6px 16px rgba(var(--brand-rgb), 0.28);
     }
+
+    &__icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+}
+
+.contact-num--blink {
+    animation: phone-blink 1.4s ease-in-out infinite;
 }
 
 .menu-item .submenu-list {
@@ -229,6 +289,15 @@
 }
 
 @media screen and (max-width: 992px) {
+    .header-top {
+        min-height: var(--header-height);
+        padding-block: 0;
+    }
+
+    .header-bottom {
+        border-top: none;
+    }
+
     .header-logo .logo-img-wrap {
         width: 16rem;
         max-width: 58vw;
@@ -438,10 +507,19 @@
 }
 
 @media screen and (min-width: 993px) {
+    :root {
+        --header-height: 12.4rem;
+    }
+
     .mobile-consult-bar,
     .mobile-nav-backdrop,
     .mobile-nav-top,
     .mobile-nav-close {
         display: none !important;
+    }
+
+    .navbar.hide-navbar {
+        display: block;
+        transform: none;
     }
 }

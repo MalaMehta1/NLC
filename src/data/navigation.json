@@ -4,6 +4,7 @@
     { "label": "about us", "path": "/about" },
     { "label": "practice area", "path": "/practicearea" },
     { "label": "our services", "path": "/service" },
+    { "label": "court fee calculator", "path": "/court-fee-calculator" },
     { "label": "publications", "path": "/publication" },
     { "label": "our team", "path": "/team" },
     { "label": "contact us", "path": "/contact" }

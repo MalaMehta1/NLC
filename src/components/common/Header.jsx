@@ -57,77 +57,81 @@ const Header = () => {
     return (
         <section className={`header-wrap ${isActive ? 'active' : ''} ${menuIsActive ? 'menu-open' : ''}`}>
             <div className='site-header container'>
-                <div className='header-logo'>
-                    <NavLink to="/" onClick={closeMenu}>
-                        <div className='logo-img-wrap'>
-                            <img className='logo-img' src={siteData.logo} alt={siteData.firmName} />
-                        </div>
-                    </NavLink>
-                </div>
-
-                <div
-                    className={`mobile-nav-backdrop ${menuIsActive ? 'is-visible' : ''}`}
-                    onClick={closeMenu}
-                    aria-hidden={!menuIsActive}
-                />
-
-                <nav className={`navbar ${menuIsActive ? 'is-open' : 'hide-navbar'}`} aria-label="Main navigation">
-                    <div className='mobile-nav-top'>
-                        <div className='mobile-nav-brand'>
-                            <img src={siteData.logo} alt={siteData.firmName} className='mobile-nav-logo' />
-                        </div>
-                        <button
-                            type="button"
-                            className='mobile-nav-close'
-                            onClick={closeMenu}
-                            aria-label="Close menu"
-                        >
-                            <IoClose />
-                        </button>
+                <div className='header-top'>
+                    <div className='header-logo'>
+                        <NavLink to="/" onClick={closeMenu}>
+                            <div className='logo-img-wrap'>
+                                <img className='logo-img' src={siteData.logo} alt={siteData.firmName} />
+                            </div>
+                        </NavLink>
                     </div>
 
-                    <ul className='menu'>
-                        {navigationData.links.map((link, index) => (
-                            <li
-                                className='menu-item'
-                                key={link.path}
-                                style={{ '--item-index': index }}
-                            >
-                                <NavLink
-                                    to={link.path}
-                                    className='menu-link'
-                                    onClick={closeMenu}
-                                >
-                                    {link.label}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-
-                <div className='header-contact'>
-                    <p className='text header-contact__cta'>{siteData.consultationCta}</p>
-                    <p className='text'>
-                        <a href={`tel:${contactData.phone}`} className='contact-num contact-num--blink'>
-                            <IoCall className='contact-num__icon' aria-hidden="true" />
-                            <span>{contactData.phone}</span>
+                    <div className='header-contact'>
+                        <a href={`tel:${contactData.phone}`} className='header-consult'>
+                            <span className='header-consult__label'>{siteData.consultationCta}</span>
+                            <span className='header-consult__phone contact-num--blink'>
+                                <IoCall className='header-consult__icon' aria-hidden="true" />
+                                <span>{contactData.phone}</span>
+                            </span>
                         </a>
-                    </p>
+                    </div>
+
+                    <div className='hamburger-menu'>
+                        <button
+                            type="button"
+                            className={`hamburger ${menuIsActive ? 'is-active' : ''}`}
+                            onClick={toggleMenu}
+                            id='hamburger'
+                            aria-label={menuIsActive ? 'Close menu' : 'Open menu'}
+                            aria-expanded={menuIsActive}
+                        >
+                            <span className="line"></span>
+                            <span className="line"></span>
+                            <span className="line"></span>
+                        </button>
+                    </div>
                 </div>
 
-                <div className='hamburger-menu'>
-                    <button
-                        type="button"
-                        className={`hamburger ${menuIsActive ? 'is-active' : ''}`}
-                        onClick={toggleMenu}
-                        id='hamburger'
-                        aria-label={menuIsActive ? 'Close menu' : 'Open menu'}
-                        aria-expanded={menuIsActive}
-                    >
-                        <span className="line"></span>
-                        <span className="line"></span>
-                        <span className="line"></span>
-                    </button>
+                <div className='header-bottom'>
+                    <div
+                        className={`mobile-nav-backdrop ${menuIsActive ? 'is-visible' : ''}`}
+                        onClick={closeMenu}
+                        aria-hidden={!menuIsActive}
+                    />
+
+                    <nav className={`navbar ${menuIsActive ? 'is-open' : 'hide-navbar'}`} aria-label="Main navigation">
+                        <div className='mobile-nav-top'>
+                            <div className='mobile-nav-brand'>
+                                <img src={siteData.logo} alt={siteData.firmName} className='mobile-nav-logo' />
+                            </div>
+                            <button
+                                type="button"
+                                className='mobile-nav-close'
+                                onClick={closeMenu}
+                                aria-label="Close menu"
+                            >
+                                <IoClose />
+                            </button>
+                        </div>
+
+                        <ul className='menu'>
+                            {navigationData.links.map((link, index) => (
+                                <li
+                                    className='menu-item'
+                                    key={link.path}
+                                    style={{ '--item-index': index }}
+                                >
+                                    <NavLink
+                                        to={link.path}
+                                        className='menu-link'
+                                        onClick={closeMenu}
+                                    >
+                                        {link.label}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
                 </div>
             </div>
 

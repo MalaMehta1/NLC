@@ -24,6 +24,11 @@
         "subtitle": "Practical legal solutions tailored to individuals and businesses.",
         "image": "/images/banner-1.jpeg"
       },
+      "/court-fee-calculator": {
+        "title": "Court Fee Calculator",
+        "subtitle": "Estimate civil court fees under Nepal’s National Civil Procedure (Code) Act, 2017.",
+        "image": "/images/banner-2.jpeg"
+      },
       "/publication": {
         "title": "Publications",
         "subtitle": "Insights on Nepal’s evolving legal and regulatory landscape.",
@@ -77,6 +82,10 @@
       "/service": {
         "title": "Our Services",
         "description": "Legal consultation, document drafting, dispute resolution, litigation, compliance advisory, and tailored legal solutions from National Legal Counsel."
+      },
+      "/court-fee-calculator": {
+        "title": "Court Fee Calculator",
+        "description": "Calculate Nepal civil court fees under Section 69 of the National Civil Procedure (Code) Act, 2017. Free court fee estimate tool from National Legal Counsel."
       },
       "/publication": {
         "title": "Publications",

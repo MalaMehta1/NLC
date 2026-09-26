@@ -5,6 +5,7 @@ export { default as aboutData } from './about.json';
 export { default as homeData } from './home.json';
 export { default as practiceAreasData } from './practice-areas.json';
 export { default as servicesData } from './services.json';
+export { default as courtFeeData } from './court-fee.json';
 export { default as teamData } from './team.json';
 export { default as publicationsData } from './publications.json';
 export { default as awardsData } from './awards.json';

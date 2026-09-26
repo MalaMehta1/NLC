@@ -1,0 +1,363 @@
+@use '../config/' as *;
+
+.court-fee-section {
+  position: relative;
+  overflow: hidden;
+  padding-block: 2rem 7rem;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(var(--brand-rgb), 0.07), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(var(--brand-rgb), 0.05), transparent 42%),
+    linear-gradient(180deg, #fff 0%, var(--brand-surface) 100%);
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header .section-title {
+    color: var(--brand-red);
+  }
+
+  .section-header .section-subtitle {
+    max-width: 62rem;
+    color: var(--brand-muted);
+    font-size: clamp(1.5rem, 2vw, 1.8rem);
+    font-weight: 500;
+    line-height: 1.55;
+    text-transform: none;
+    opacity: 1;
+  }
+}
+
+.court-fee-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 3.2rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.court-fee-panel {
+  width: 100%;
+}
+
+.court-fee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 3.2rem;
+  background: #fff;
+  border: 1px solid rgba(20, 103, 155, 0.1);
+  border-radius: 1.8rem;
+  box-shadow: 0 18px 48px rgba(8, 28, 45, 0.08);
+
+  &__intro {
+    h3 {
+      margin: 0 0 0.6rem;
+      color: var(--brand-ink);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      color: var(--brand-muted);
+      font-size: 1.4rem;
+      line-height: 1.5;
+    }
+  }
+
+  .field-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+
+  &__submit {
+    min-width: 16rem;
+    text-align: center;
+    background: var(--brand-red);
+    color: #fff;
+    border: 1px solid var(--brand-red);
+    box-shadow: 0 10px 24px rgba(var(--brand-rgb), 0.22);
+
+    &:hover {
+      background: var(--brand-red-deep);
+      border-color: var(--brand-red-deep);
+      color: #fff;
+    }
+  }
+
+  &__reset {
+    min-width: 12rem;
+    text-align: center;
+    color: var(--brand-red);
+    border: 1.5px solid rgba(var(--brand-rgb), 0.35);
+    background: transparent;
+    transition: all 250ms var(--ease-out);
+
+    &:hover {
+      color: #fff;
+      background: var(--brand-red);
+      border-color: var(--brand-red);
+    }
+  }
+
+  &__note {
+    margin: 0;
+    color: var(--brand-muted);
+    font-size: 1.25rem;
+    line-height: 1.55;
+  }
+}
+
+.court-fee-result {
+  padding: 2rem;
+  border-radius: 1.4rem;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(var(--brand-rgb), 0.12), transparent 55%),
+    linear-gradient(160deg, #0d4f78 0%, #14679b 55%, #1e7fb8 100%);
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(13, 79, 120, 0.22);
+
+  &__label {
+    margin: 0 0 0.6rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  &__amount {
+    margin: 0 0 0.6rem;
+    font-size: clamp(2.8rem, 4vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  &__claim {
+    margin: 0;
+    font-size: 1.35rem;
+    opacity: 0.88;
+  }
+}
+
+.court-fee-breakdown {
+  margin-top: 1.8rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+
+  h4 {
+    margin: 0 0 1.2rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.2rem;
+    font-size: 1.35rem;
+
+    span {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-weight: 600;
+
+      em {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.2rem;
+        opacity: 0.8;
+      }
+    }
+
+    strong {
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+  }
+}
+
+.court-fee-info-title {
+  margin: 0 0 1.2rem;
+  color: var(--brand-ink);
+  font-size: clamp(2rem, 2.5vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.court-fee-info-text {
+  margin: 0 0 2.4rem;
+  color: var(--brand-muted);
+  font-size: 1.5rem;
+  line-height: 1.7;
+}
+
+.court-fee-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 2.4rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(20, 103, 155, 0.12);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(8, 28, 45, 0.05);
+}
+
+.court-fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 42rem;
+
+  th,
+  td {
+    padding: 1.4rem 1.8rem;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.45;
+    border-bottom: 1px solid rgba(20, 103, 155, 0.08);
+  }
+
+  th {
+    background: rgba(var(--brand-rgb), 0.08);
+    color: var(--brand-red-deep);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  td {
+    color: var(--brand-ink);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover td {
+    background: rgba(var(--brand-rgb), 0.03);
+  }
+
+  &__index {
+    color: var(--brand-red);
+    font-weight: 700;
+  }
+}
+
+.court-fee-keypoints {
+  list-style: none;
+  margin: 0 0 2.4rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.court-fee-keypoint {
+  padding: 1.6rem 1.8rem;
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(20, 103, 155, 0.1);
+  box-shadow: 0 10px 28px rgba(8, 28, 45, 0.04);
+  transition: transform 240ms var(--ease-out), border-color 240ms var(--ease-out), box-shadow 240ms var(--ease-out);
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    border-color: rgba(var(--brand-rgb), 0.28);
+    box-shadow: 0 14px 32px rgba(8, 28, 45, 0.08);
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--brand-ink);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    color: var(--brand-muted);
+    font-size: 1.4rem;
+    line-height: 1.55;
+  }
+}
+
+.court-fee-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20rem;
+  text-align: center;
+  text-decoration: none;
+  background: var(--brand-red);
+  color: #fff;
+  border: 1px solid var(--brand-red);
+  box-shadow: 0 10px 24px rgba(var(--brand-rgb), 0.22);
+
+  &:hover {
+    background: var(--brand-red-deep);
+    border-color: var(--brand-red-deep);
+    color: #fff;
+  }
+}
+
+.court-fee-page {
+  .court-fee-section {
+    border-top: 1px solid rgba(var(--brand-rgb), 0.08);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .court-fee-layout {
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .court-fee-section {
+    padding-block: 1rem 5.6rem;
+  }
+
+  .court-fee-form {
+    padding: 2.4rem;
+
+    &__submit,
+    &__reset {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  .court-fee-cta {
+    width: 100%;
+  }
+
+  .court-fee-table {
+    th,
+    td {
+      padding: 1.2rem 1.4rem;
+      font-size: 1.3rem;
+    }
+  }
+}

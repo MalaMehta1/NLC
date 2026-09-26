@@ -9,6 +9,7 @@ import OurTeam from './pages/OurTeam';
 import PublicationsPage from './pages/Publications';
 import PracticeArea from './pages/PracticeArea';
 import OurServices from './pages/OurServices';
+import CourtFeeCalculatorPage from './pages/CourtFeeCalculator';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
 import Seo from './components/common/Seo';
 import ScrollToTop from './components/common/ScrollToTop';
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/contact' element={<ContactUs />} />
           <Route path='/team' element={<OurTeam />} />
           <Route path='/service' element={<OurServices />} />
+          <Route path='/court-fee-calculator' element={<CourtFeeCalculatorPage />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>

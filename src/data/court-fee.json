@@ -1,0 +1,35 @@
+{
+  "intro": [
+    "This Court Fee Calculator helps clients, lawyers, and court officials estimate the court fee payable when filing a plaint, appeal, or counterclaim in civil cases in Nepal. Section 63 of the National Civil Procedure (Code) Act, 2017 creates the obligation to pay court fees based on the value or claimed amount.",
+    "National Legal Counsel (NLC) has developed this calculator as a practical resource for the legal community. Use it to determine the approximate court fee before filing a civil case."
+  ],
+  "howTitle": "How Court Fee is Determined?",
+  "howText": "The rate of court fee is calculated based on the following criteria as determined by Section 69 of the Chapter on Provisions Relating to Court Fees of the National Civil Procedure (Code) Act, 2017 of Nepal. Fees are applied progressively across each amount slab.",
+  "note": "This tool provides an estimate under Section 69 for monetary civil claims. Fixed or different fees may apply under Sections 70 and 71 for certain case types. Always confirm the assessed fee with the court before filing.",
+  "form": {
+    "label": "Claim / Suit Amount (NPR)",
+    "placeholder": "e.g. 200000",
+    "calculate": "Calculate Fee",
+    "reset": "Reset",
+    "resultLabel": "Estimated Court Fee",
+    "breakdownLabel": "Fee Breakdown"
+  },
+  "keyPoints": [
+    {
+      "title": "Legal basis",
+      "text": "Court fees for monetary civil claims follow Section 69 of the National Civil Procedure (Code) Act, 2017."
+    },
+    {
+      "title": "When fees are due",
+      "text": "Section 63 requires payment of court fee when filing a plaint, appeal, or counterclaim based on the claimed amount."
+    },
+    {
+      "title": "Progressive slabs",
+      "text": "Rates apply slab by slab as the claim amount rises — not a single flat percentage on the full amount (except the first Rs. 500 band)."
+    },
+    {
+      "title": "NLC guidance",
+      "text": "For case-specific advice, filing strategy, or confirmation of fees, contact National Legal Counsel for a free consultation."
+    }
+  ]
+}
